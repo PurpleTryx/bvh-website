@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bricks Value Hub — Free Tool</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg0:#070b10;--bg1:#0d1520;--bg2:#111e2e;--bg3:#162436;
+  --border:rgba(56,130,200,0.18);--border2:rgba(56,130,200,0.35);
+  --accent:#2a8fff;--accent2:#00d4aa;--gold:#f0b429;--red:#ff4d6d;--purple:#a78bfa;
+  --text:#e8f0f8;--muted:#6a8aaa;
+  --mono:'JetBrains Mono',monospace;--sans:'Syne',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{min-height:100%;background:var(--bg0);color:var(--text);font-family:var(--sans);}
+body::before{content:'';position:fixed;inset:0;z-index:0;
+  background:radial-gradient(ellipse 60% 40% at 80% 20%,rgba(42,143,255,0.07) 0%,transparent 70%),
+  radial-gradient(ellipse 50% 60% at 10% 80%,rgba(0,212,170,0.05) 0%,transparent 70%);pointer-events:none;}
+body::after{content:'';position:fixed;inset:0;z-index:0;
+  background-image:linear-gradient(rgba(56,130,200,0.04) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(56,130,200,0.04) 1px,transparent 1px);
+  background-size:40px 40px;pointer-events:none;}
+.app{position:relative;z-index:1;max-width:960px;margin:0 auto;width:100%;padding:0 16px 80px;}
+header{padding:28px 0 18px;text-align:center;}
+.logo{font-size:11px;letter-spacing:0.25em;color:var(--accent);text-transform:uppercase;font-family:var(--mono);margin-bottom:8px;}
+h1{font-size:clamp(22px,5vw,38px);font-weight:800;line-height:1.1;letter-spacing:-0.02em;}
+h1 span{color:var(--accent);}
+.subtitle{font-size:12px;color:var(--muted);margin-top:6px;font-family:var(--mono);}
+.free-banner{background:rgba(0,212,170,0.07);border:1px solid rgba(0,212,170,0.25);border-radius:12px;padding:12px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.fb-left{display:flex;align-items:center;gap:10px;flex:1;}
+.fb-icon{font-size:18px;}
+.fb-title{font-size:13px;font-weight:700;color:var(--accent2);}
+.fb-sub{font-size:11px;color:var(--muted);margin-top:1px;}
+.upgrade-pill{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:7px 16px;font-family:var(--sans);font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;}
+.upgrade-pill:hover{opacity:0.88;}
+.tabs{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap;}
+.tab{padding:9px 16px;font-size:12px;font-weight:700;letter-spacing:0.04em;cursor:pointer;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--muted);transition:all 0.18s;font-family:var(--sans);text-transform:uppercase;}
+.tab:hover{border-color:var(--border2);color:var(--text);}
+.tab.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+.tab.pro{opacity:0.5;cursor:not-allowed;}
+.pro-tag{font-size:8px;background:var(--gold);color:#000;padding:1px 5px;border-radius:4px;margin-left:5px;font-weight:700;vertical-align:middle;}
+.panel{display:none;animation:fadeUp 0.2s ease;}
+.panel.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.card{background:var(--bg1);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:16px;}
+.card-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.card-sub{font-size:12px;color:var(--muted);margin-bottom:16px;line-height:1.6;}
+.field{margin-bottom:12px;}
+.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px;font-family:var(--mono);}
+.field input,.field select{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--text);font-family:var(--mono);font-size:13px;transition:border-color 0.15s;}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent);}
+.field select option{background:var(--bg2);}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:480px){.row2{grid-template-columns:1fr;}}
+/* VALUE LIST */
+.vl-controls{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.vl-search{flex:1;min-width:160px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px 13px;color:var(--text);font-family:var(--mono);font-size:13px;}
+.vl-search:focus{outline:none;border-color:var(--accent);}
+.vl-filter{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px 10px;color:var(--text);font-family:var(--mono);font-size:12px;cursor:pointer;}
+.vl-filter:focus{outline:none;border-color:var(--accent);}
+.vl-stats{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.vl-stat{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:5px 10px;font-size:11px;font-family:var(--mono);color:var(--muted);}
+.vl-stat span{color:var(--accent);font-weight:700;}
+.vl-table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border);}
+.vl-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px;}
+.vl-table th{background:var(--bg2);padding:9px 14px;text-align:left;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:500;cursor:pointer;user-select:none;white-space:nowrap;border-bottom:1px solid var(--border);}
+.vl-table th:hover{color:var(--accent);}
+.vl-table td{padding:8px 14px;border-bottom:1px solid rgba(56,130,200,0.07);vertical-align:middle;white-space:nowrap;}
+.vl-table tr:last-child td{border-bottom:none;}
+.vl-table tr:hover td{background:rgba(42,143,255,0.04);}
+.item-name{font-weight:700;color:var(--text);font-size:13px;}
+.crr-val{font-weight:800;color:var(--accent);font-size:13px;}
+.cat-badge{display:inline-block;padding:2px 7px;border-radius:5px;font-size:10px;font-weight:500;}
+.cat-Sets{background:rgba(167,139,250,0.15);color:var(--purple);}
+.cat-Boss{background:rgba(255,77,109,0.12);color:#ff6b85;}
+.cat-Misc{background:rgba(56,130,200,0.12);color:var(--accent);}
+.cat-Ascension{background:rgba(0,212,170,0.12);color:var(--accent2);}
+.cat-Relic{background:rgba(240,180,41,0.12);color:var(--gold);}
+.cat-Gamepass{background:rgba(255,140,0,0.15);color:#ffa040;}
+.cat-Crafting{background:rgba(100,200,100,0.12);color:#7dd87d;}
+.cat-Chests{background:rgba(200,150,50,0.12);color:#c8a050;}
+.cat-Value{background:rgba(200,200,200,0.1);color:#aaa;}
+.demand-high{color:var(--accent2);font-weight:700;}
+.demand-mid{color:var(--gold);}
+.demand-low{color:var(--red);}
+.demand-dead{color:var(--muted);}
+.stab-unstable{color:var(--red);}
+.stab-stable{color:var(--gold);}
+.obtainable-no{color:var(--red);font-weight:700;}
+.obtainable-yes{color:var(--accent2);}
+.tier-badge{display:inline-block;padding:1px 6px;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:0.08em;margin-left:5px;vertical-align:middle;}
+.tier-S{background:rgba(255,77,109,0.2);color:#ff4d6d;}
+.tier-A{background:rgba(240,180,41,0.2);color:#f0b429;}
+.tier-B{background:rgba(42,143,255,0.2);color:#2a8fff;}
+.tier-C{background:rgba(0,212,170,0.15);color:#00d4aa;}
+.tier-D{background:rgba(106,138,170,0.15);color:#6a8aaa;}
+.vl-empty{text-align:center;padding:32px;color:var(--muted);font-family:var(--mono);font-size:13px;}
+/* TRADE CALC */
+.trade-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:560px){.trade-grid{grid-template-columns:1fr;}}
+.trade-side-title{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.trade-item-row{display:flex;gap:8px;margin-bottom:8px;align-items:center;}
+.trade-item-row input{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 10px;color:var(--text);font-family:var(--mono);font-size:12px;}
+.trade-item-row input:focus{outline:none;border-color:var(--accent);}
+.qty-input{width:55px;flex:none;}
+.trade-item-crr{font-size:11px;font-family:var(--mono);min-width:65px;text-align:right;}
+.remove-btn{background:rgba(255,77,109,0.12);border:1px solid rgba(255,77,109,0.25);color:var(--red);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:11px;flex-shrink:0;}
+.remove-btn:hover{background:rgba(255,77,109,0.25);}
+.add-item-btn{width:100%;padding:8px;background:transparent;border:1px dashed var(--border2);border-radius:8px;color:var(--muted);font-family:var(--sans);font-size:12px;cursor:pointer;transition:all 0.15s;margin-top:4px;}
+.add-item-btn:hover{border-color:var(--accent);color:var(--accent);}
+.trade-total{margin-top:10px;font-size:14px;font-weight:700;font-family:var(--mono);color:var(--text);padding:8px 12px;background:var(--bg3);border-radius:8px;border:1px solid var(--border);}
+.trade-verdict-box{border-radius:14px;padding:18px;text-align:center;border:2px solid;margin-top:16px;}
+.trade-verdict-box.winning{background:rgba(0,212,170,0.07);border-color:rgba(0,212,170,0.35);}
+.trade-verdict-box.losing{background:rgba(255,77,109,0.07);border-color:rgba(255,77,109,0.35);}
+.trade-verdict-box.even{background:rgba(240,180,41,0.07);border-color:rgba(240,180,41,0.35);}
+.verdict-emoji{font-size:32px;margin-bottom:6px;}
+.verdict-title{font-size:20px;font-weight:800;margin-bottom:4px;}
+.winning .verdict-title{color:var(--accent2);}
+.losing .verdict-title{color:var(--red);}
+.even .verdict-title{color:var(--gold);}
+.verdict-detail{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.verdict-stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.vstat{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:7px 12px;font-family:var(--mono);font-size:11px;}
+.vstat-label{color:var(--muted);font-size:10px;margin-bottom:2px;}
+.vstat-val{font-weight:700;font-size:13px;}
+/* PRO LOCKED PANEL */
+.pro-locked{text-align:center;padding:48px 24px;}
+.pro-locked-icon{font-size:40px;margin-bottom:14px;}
+.pro-locked-title{font-size:20px;font-weight:800;margin-bottom:8px;}
+.pro-locked-sub{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6;}
+.pro-locked-btn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:12px 28px;font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer;}
+.pro-locked-btn:hover{opacity:0.88;}
+.pro-features{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:400px;margin:0 auto 20px;text-align:left;}
+.pro-feat{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:12px;color:var(--muted);}
+.pro-feat strong{color:var(--text);display:block;margin-bottom:2px;}
+.offline-note{font-size:11px;color:var(--muted);font-family:var(--mono);text-align:center;margin-top:16px;}
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:var(--bg0);}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
+</style>
+</head>
+<body>
+<div class="app">
+
+<header>
+  <div class="logo">🧱 Bricks Value Hub</div>
+  <h1>Trading <span>Tool</span> — Free</h1>
+  <div class="subtitle">// value list · trade calculator · fully offline · no account needed</div>
+</header>
+
+<div class="free-banner">
+  <div class="fb-left">
+    <div class="fb-icon">🎁</div>
+    <div>
+      <div class="fb-title">Free version — Value List and Trade Calculator included</div>
+      <div class="fb-sub">Upgrade to Pro for AI-powered analysis, snipe scanner, flip calculator, market intel and more — $5/month</div>
+    </div>
+  </div>
+  <button class="upgrade-pill" onclick="showUpgrade()">Upgrade to Pro →</button>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('valuelist',this)">📋 Value List</button>
+  <button class="tab" onclick="switchTab('tradecalc',this)">⚖️ Trade Calc</button>
+  <button class="tab pro" onclick="showUpgrade()">🔍 Evaluate <span class="pro-tag">PRO</span></button>
+  <button class="tab pro" onclick="showUpgrade()">💰 Flip Calc <span class="pro-tag">PRO</span></button>
+  <button class="tab pro" onclick="showUpgrade()">🎯 Sniper <span class="pro-tag">PRO</span></button>
+  <button class="tab pro" onclick="showUpgrade()">📈 Market Intel <span class="pro-tag">PRO</span></button>
+  <button class="tab pro" onclick="showUpgrade()">🔁 Trade-Up <span class="pro-tag">PRO</span></button>
+</div>
+
+<!-- VALUE LIST -->
+<div class="panel active" id="panel-valuelist">
+  <div class="card">
+    <div class="card-title">📋 Official Vaulted Values — Full Item Database</div>
+    <div class="card-sub">Every item's real CRR value, demand, and stability from Vaulted Values. Click any item to load it into the Trade Calculator.</div>
+    <div class="vl-controls">
+      <input class="vl-search" id="vlSearch" placeholder="Search items..." oninput="renderVL()"/>
+      <select class="vl-filter" id="vlCat" onchange="renderVL()">
+        <option value="">All categories</option>
+        <option value="Sets">Sets</option>
+        <option value="Ascension">Ascensions</option>
+        <option value="Relic">Relics</option>
+        <option value="Gamepass">Gamepasses</option>
+        <option value="Boss">Boss Drops</option>
+        <option value="Chests">Chests</option>
+        <option value="Misc">Misc</option>
+        <option value="Crafting">Crafting</option>
+        <option value="Value">Value</option>
+      </select>
+      <select class="vl-filter" id="vlDemand" onchange="renderVL()">
+        <option value="">All demand</option>
+        <option value="high">High demand</option>
+        <option value="mid">Mid demand</option>
+        <option value="low">Low demand</option>
+        <option value="dead">Dead demand</option>
+      </select>
+      <select class="vl-filter" id="vlSort" onchange="renderVL()">
+        <option value="crr_desc">CRR: High → Low</option>
+        <option value="crr_asc">CRR: Low → High</option>
+        <option value="name_asc">Name A → Z</option>
+        <option value="demand_desc">Demand: Best first</option>
+      </select>
+    </div>
+    <div class="vl-stats" id="vlStats"></div>
+    <div class="vl-table-wrap">
+      <table class="vl-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>CRR Value</th>
+            <th>Category</th>
+            <th>Demand</th>
+            <th>Stability</th>
+            <th>Obtainable</th>
+          </tr>
+        </thead>
+        <tbody id="vlBody"></tbody>
+      </table>
+      <div class="vl-empty" id="vlEmpty" style="display:none;">No items match your filters.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRADE CALC -->
+<div class="panel" id="panel-tradecalc">
+  <div class="card">
+    <div class="card-title">⚖️ Trade Calculator</div>
+    <div class="card-sub">Add the items you're giving and receiving. The calculator tells you instantly if you're winning or losing the trade based on real Vaulted Values CRR.</div>
+    <div class="trade-grid">
+      <div>
+        <div class="trade-side-title" style="color:var(--accent2);">
+          <span style="background:rgba(0,212,170,0.15);padding:3px 12px;border-radius:6px;">You Give</span>
+        </div>
+        <div id="give-items"></div>
+        <button class="add-item-btn" onclick="addItem('give')">+ Add Item</button>
+        <div class="trade-total" id="give-total">Total: 0 CRR</div>
+      </div>
+      <div>
+        <div class="trade-side-title" style="color:var(--gold);">
+          <span style="background:rgba(240,180,41,0.15);padding:3px 12px;border-radius:6px;">You Receive</span>
+        </div>
+        <div id="recv-items"></div>
+        <button class="add-item-btn" onclick="addItem('recv')">+ Add Item</button>
+        <div class="trade-total" id="recv-total">Total: 0 CRR</div>
+      </div>
+    </div>
+    <div id="trade-verdict" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- PRO LOCKED -->
+<div class="panel" id="panel-pro">
+  <div class="card">
+    <div class="pro-locked">
+      <div class="pro-locked-icon">🔒</div>
+      <div class="pro-locked-title">This feature is Pro only</div>
+      <div class="pro-locked-sub">Upgrade to get full AI-powered analysis, snipe scanning, flip calculations, market intel and the trade-up planner — all for just $5/month.</div>
+      <div class="pro-features">
+        <div class="pro-feat"><strong>🔍 Item Evaluator</strong>AI market breakdown on any item</div>
+        <div class="pro-feat"><strong>💰 Flip Calculator</strong>Full AI flip verdict + advice</div>
+        <div class="pro-feat"><strong>🎯 Snipe Scanner</strong>Auto-flags underpriced deals</div>
+        <div class="pro-feat"><strong>📈 Market Intel</strong>Patch & update predictions</div>
+        <div class="pro-feat"><strong>🔁 Trade-Up Planner</strong>Step-by-step path to your goal</div>
+        <div class="pro-feat"><strong>🤖 AI Analysis</strong>Powered by Claude AI</div>
+      </div>
+      <button class="pro-locked-btn" onclick="showUpgrade()">Create a support ticket to upgrade →</button>
+    </div>
+  </div>
+</div>
+
+<div class="offline-note">🧱 runs fully offline · no account needed · values from vaulted values · free forever</div>
+</div>
+
+<script>
+const DB = [
+  {name:"Ragna Set",              crr:3000000, demand:"High 8",      stability:"Stable",   obtainable:false, category:"Sets"},
+  {name:"Madoka Set (with Hearts)",crr:1600000,demand:"High 8",      stability:"Stable",   obtainable:false, category:"Sets"},
+  {name:"Madoka Set (without Hearts)",crr:750000,demand:"High 1",   stability:"Stable",   obtainable:false, category:"Sets"},
+  {name:"2x Drop Gamepass",       crr:730000,  demand:"High 1",      stability:"Unstable", obtainable:true,  category:"Gamepass"},
+  {name:"2x Luck Gamepass",       crr:630000,  demand:"High 1",      stability:"Unstable", obtainable:true,  category:"Gamepass"},
+  {name:"2x Gems Gamepass",       crr:250000,  demand:"Medium 8",    stability:"Stable",   obtainable:true,  category:"Gamepass"},
+  {name:"Damage Relic Set",       crr:214000,  demand:"Moderate 2",  stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"Cosmic Being (Spec)",    crr:65000,   demand:"Moderate 1",  stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"2x Exp Gamepass",        crr:56000,   demand:"Low",         stability:"Stable",   obtainable:true,  category:"Gamepass"},
+  {name:"Luck Relic Set",         crr:55000,   demand:"Moderate 1",  stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"Crit Damage Set",        crr:50500,   demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"Frieren Set (w/Hearts)", crr:50000,   demand:"N/A",         stability:"Unstable", obtainable:true,  category:"Sets"},
+  {name:"2x Money Gamepass",      crr:50000,   demand:"Low",         stability:"Stable",   obtainable:true,  category:"Gamepass"},
+  {name:"Crit Chance Set",        crr:39500,   demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"Ascension 3",            crr:6527,    demand:"Moderate 5",  stability:"Stable",   obtainable:true,  category:"Ascension"},
+  {name:"The World (Full Set)",   crr:6000,    demand:"Moderate 1",  stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Guild Key",              crr:5000,    demand:"Low",         stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"The World (Spec Set)",   crr:4740,    demand:"Moderate 1",  stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Monster Pulse",          crr:4000,    demand:"High 5",      stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Hearts",                 crr:3750,    demand:"Medium 6",    stability:"Unstable", obtainable:false, category:"Misc"},
+  {name:"Ascension 10",           crr:3250,    demand:"Moderate 6",  stability:"Stable",   obtainable:true,  category:"Ascension"},
+  {name:"Star Mark",              crr:3000,    demand:"High 3",      stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Galaxy Shard",           crr:3000,    demand:"High 6",      stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Ascension 9",            crr:3070,    demand:"Moderate 6",  stability:"Stable",   obtainable:true,  category:"Ascension"},
+  {name:"Madara (Full Set)",      crr:2910,    demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Ascension 4",            crr:2778,    demand:"Moderate 6",  stability:"Stable",   obtainable:true,  category:"Ascension"},
+  {name:"Ascension 6",            crr:2587,    demand:"Moderate 4",  stability:"Stable",   obtainable:true,  category:"Ascension"},
+  {name:"Aizen V1 (Spec Set)",    crr:2134,    demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Ascension 5",            crr:2186,    demand:"Moderate 4",  stability:"Stable",   obtainable:true,  category:"Ascension"},
+  {name:"Madara (Mastery Set)",   crr:1870,    demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Ascension 8",            crr:1895,    demand:"Moderate 1",  stability:"Stable",   obtainable:true,  category:"Ascension"},
+  {name:"Sung Jinwoo v1",         crr:1691,    demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Alucard Set",            crr:1671,    demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Esdeath (Full Set)",     crr:1613,    demand:"Medium 2",    stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Sukuna v1 Set",          crr:1545,    demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Cosmic Essence",         crr:1500,    demand:"High 2",      stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Ascension 7",            crr:1380,    demand:"Moderate 1",  stability:"Stable",   obtainable:true,  category:"Ascension"},
+  {name:"Relic Part #3",          crr:1300,    demand:"Medium 6",    stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"Relic Part #1",          crr:1300,    demand:"Medium 6",    stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"Relic Part #7",          crr:1200,    demand:"Medium 5",    stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"Relic Part #8",          crr:1200,    demand:"Medium 5",    stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"The World (Mastery)",    crr:1260,    demand:"Medium 10",   stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Gilgamesh (Full Set)",   crr:1254,    demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Saber V2 (Full Set)",    crr:1241,    demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Mana Core",              crr:1000,    demand:"Moderate 4",  stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Relic Part #5",          crr:1000,    demand:"Medium 4",    stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"Relic Part #6",          crr:1000,    demand:"Medium 4",    stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"Esdeath (Mastery Set)",  crr:1045,    demand:"Medium 2",    stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Aizen v2 (Full Set)",    crr:1041,    demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Madara (Spec Set)",      crr:1040,    demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Yamato Set",             crr:988,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Relic Part #2",          crr:900,     demand:"Medium 2",    stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"Relic Part #4",          crr:900,     demand:"Medium 2",    stability:"Stable",   obtainable:true,  category:"Relic"},
+  {name:"Magic Essence",          crr:900,     demand:"Moderate 4",  stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Azure Heart",            crr:900,     demand:"Moderate 6",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Path Fragment",          crr:900,     demand:"Moderate 4",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Gilgamesh (Babylon)",    crr:915,     demand:"Low",         stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Saber V2 (Mastery)",     crr:910,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Gojo v2 (Full Set)",     crr:863,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Sukuna v2 (Full Set)",   crr:852,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Kokushibo (Full Set)",   crr:804,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Blood Ring",             crr:625,     demand:"Moderate 1",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Ancient Fragment",       crr:600,     demand:"Moderate 4",  stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Cid v1 (Spec Set)",      crr:604,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Hogyoku Fragment",       crr:570,     demand:"Moderate 1",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Esdeath (Spec Set)",     crr:568,     demand:"Medium 2",    stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Dark Ring",              crr:555,     demand:"Moderate 1",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Gojo v2 (Domain Shard)", crr:551,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Aizen v2 (Mastery)",     crr:545,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Sukuna v2 (Domain)",     crr:542,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Reiatsu Core",           crr:516,     demand:"Moderate 6",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Atomic Core",            crr:512,     demand:"Moderate 1",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Dismantle Fang",         crr:508,     demand:"Moderate 1",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Vampire Omen",           crr:500,     demand:"High 4",      stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Spell Echo",             crr:500,     demand:"Moderate 4",  stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Aizen v2 (Spec Set)",    crr:496,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Kokushibo (Mastery)",    crr:495,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Blessed Maiden (Full)",  crr:480,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Cid v2 (Full Set)",      crr:415,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Aura Crate",             crr:425,     demand:"Moderate 1",  stability:"Stable",   obtainable:true,  category:"Chests"},
+  {name:"SJW v2 Set",             crr:400,     demand:"Moderate 6",  stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"World Core",             crr:370,     demand:"High 5",      stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Gojo v1 Set",            crr:365,     demand:"High 5",      stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Cid v2 (Spec Set)",      crr:355,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Gilgamesh (Spec Set)",   crr:339,     demand:"Low",         stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Saber v2 (Spec Set)",    crr:331,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Rimuru (Spec Set)",      crr:327,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Blessed Maiden (Mas.)",  crr:325,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Ascension 2",            crr:315,     demand:"Medium 5",    stability:"Stable",   obtainable:true,  category:"Ascension"},
+  {name:"Gojo v2 (Spec Set)",     crr:312,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Sukuna v2 (Spec Set)",   crr:310,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Kokushibo (Spec Set)",   crr:309,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Evolution Fragment",     crr:300,     demand:"Moderate 6",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Phantasm Core",          crr:300,     demand:"Moderate 6",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Slime Core",             crr:300,     demand:"Moderate 6",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Infinity Essence",       crr:270,     demand:"Moderate 1",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Cursed Flesh",           crr:270,     demand:"Moderate 1",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Corrupted Crown",        crr:200,     demand:"Moderate 6",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Soul Flame",             crr:200,     demand:"Moderate 1",  stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Anos Set",               crr:164,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Time Remnant",           crr:150,     demand:"High 5",      stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Cosmetic Crate",         crr:144,     demand:"Medium 4",    stability:"Stable",   obtainable:true,  category:"Chests"},
+  {name:"Blessed Maiden (Spec)",  crr:155,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Ice Core",               crr:105,     demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Transmutation Shard",    crr:100,     demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Sung Jinwoo v2",         crr:95,      demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Ichigo Set",             crr:90,      demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Atomic Omen",            crr:80,      demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Moon Crest",             crr:80,      demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Secret Chest",           crr:80,      demand:"High 3",      stability:"Stable",   obtainable:true,  category:"Chests"},
+  {name:"Frozen Brand",           crr:75,      demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Easter Key",             crr:70,      demand:"Medium 5",    stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Eternal Core",           crr:70,      demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Cid v2 (Mastery Set)",   crr:60,      demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Easter Egg",             crr:59,      demand:"High 1",      stability:"Unstable", obtainable:true,  category:"Misc"},
+  {name:"Qin Shi Set",            crr:50,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Bloodline Stone",        crr:40,      demand:"N/A",         stability:"N/A",      obtainable:true,  category:"Value"},
+  {name:"Void Fragment",          crr:40,      demand:"Medium 5",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Limitless Ring",         crr:40,      demand:"Medium 5",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Power Fragment",         crr:30,      demand:"High 1",      stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Dominion Brand",         crr:28,      demand:"High 7",      stability:"Unstable", obtainable:true,  category:"Boss"},
+  {name:"Crescent Shard",         crr:25,      demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Corruption Core",        crr:25,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Celestial Mark",         crr:25,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Eminence Essence",       crr:25,      demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Transcendent Core",      crr:25,      demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Aero Core",              crr:25,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Destruction Eye",        crr:25,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Kamish Dagger",          crr:25,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Imperial Mark",          crr:25,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Shadow Crystal",         crr:25,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Crystal Key",            crr:20,      demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Cassul",                 crr:20,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Saber v1 Set",           crr:20,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Shadow Heart",           crr:20,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Battle Sigil",           crr:16,      demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Crimson Heart",          crr:15,      demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Glacier Remnant",        crr:12,      demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Yuji Set",               crr:8.35,    demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Sets"},
+  {name:"Shadow Remnant",         crr:8,       demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Lunar Essence",          crr:8,       demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Yamato Essence",         crr:6,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Void Seed",              crr:6,       demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Shadow Essence",         crr:6,       demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Silent Storm",           crr:6,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Power Shard",            crr:5.5,     demand:"High 6",      stability:"Unstable", obtainable:true,  category:"Misc"},
+  {name:"Divergent Pulse",        crr:5,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Infinity Core",          crr:5,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Soul Amulet",            crr:5,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Six Eyes",               crr:4,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Ancient Shard",          crr:3,       demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Blue Singularity",       crr:3,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Magic Shard",            crr:3,       demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Malevolent Soul",        crr:3,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Mythical Chest",         crr:3,       demand:"Moderate 1",  stability:"Stable",   obtainable:true,  category:"Chests"},
+  {name:"Broken Sword",           crr:3,       demand:"Medium 2",    stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Golden Essence",         crr:3,       demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Power Remnant",          crr:3,       demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Gale Essence",           crr:2,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Battle Shard",           crr:2,       demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Alter Essence",          crr:2,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Demon Remnant",          crr:2,       demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Demonic Shard",          crr:2,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Frozen Will",            crr:2,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Fusion Ring",            crr:2,       demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Slime Remnant",          crr:2,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Tempest Seal",           crr:2,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Monarch Essence",        crr:2,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Divinity Essence",       crr:2,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Awakened Finger",        crr:1.2,     demand:"Medium 3",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Clan Reroll",            crr:1,       demand:"N/A",         stability:"N/A",      obtainable:true,  category:"Value"},
+  {name:"Flash Impact",           crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Frost Relic",            crr:1,       demand:"Medium 2",    stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Reversal Pulse",         crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Mirage Pendant",         crr:1,       demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Abyss Edge",             crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Rush Key",               crr:1,       demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Calamity Seal",          crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Cursed Finger",          crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Dark Grail",             crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Demonic Fragment",       crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Dungeon Key",            crr:1,       demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Illusion Prism",         crr:1,       demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Legendary Chest",        crr:1,       demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Chests"},
+  {name:"Sage Pulse",             crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Slime Key",              crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Tempest Relic",          crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Throne Remnant",         crr:1,       demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Tower Key",              crr:1,       demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Upper Seal",             crr:1,       demand:"Medium 2",    stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Tide Remnant",           crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Abyss Sigil",            crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Vessel Ring",            crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Chrysalis Sigil",        crr:1,       demand:"Medium 2",    stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Monarch Core",           crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Morgan Remnant",         crr:1,       demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Umbral Capsule",         crr:1,       demand:"Medium 1",    stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Adamantite",             crr:1,       demand:"High 6",      stability:"Stable",   obtainable:true,  category:"Crafting"},
+  {name:"Boss Keys",              crr:1,       demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Epic Chest",             crr:0.5,     demand:"Low",         stability:"Stable",   obtainable:true,  category:"Chests"},
+  {name:"Limitless Key",          crr:0.5,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Malevolent Key",         crr:0.5,     demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Passive Shard",          crr:0.5,     demand:"High 5",      stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Grails",                 crr:0.3,     demand:"Low 3",       stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Cursed Talisman",        crr:0.3,     demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Energy Shard",           crr:0.3,     demand:"Low",         stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Slime Shards",           crr:0.25,    demand:"Low",         stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Diamond",                crr:0.2,     demand:"High 6",      stability:"Stable",   obtainable:true,  category:"Crafting"},
+  {name:"Mythril",                crr:0.075,   demand:"Low 3",       stability:"Stable",   obtainable:true,  category:"Crafting"},
+  {name:"Energy Core",            crr:0.05,    demand:"Low",         stability:"Stable",   obtainable:true,  category:"Boss"},
+  {name:"Trait RR",               crr:0.04,    demand:"Medium 6",    stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Race RR",                crr:0.02,    demand:"Medium 6",    stability:"Stable",   obtainable:true,  category:"Misc"},
+  {name:"Boss Tickets",           crr:0.02,    demand:"Medium",      stability:"Fairpaid", obtainable:true,  category:"Misc"},
+  {name:"Rare Chest",             crr:0.0138,  demand:"Low",         stability:"Stable",   obtainable:true,  category:"Chests"},
+  {name:"Common Chest",           crr:0.01,    demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Chests"},
+  {name:"Obsidian",               crr:0.008,   demand:"Dead 2",      stability:"Stable",   obtainable:true,  category:"Crafting"},
+  {name:"Iron",                   crr:0.004,   demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Crafting"},
+  {name:"Wood",                   crr:0.002,   demand:"Dead",        stability:"Stable",   obtainable:true,  category:"Crafting"},
+  {name:"Haki Rerolls",           crr:0.001,   demand:"Dead",        stability:"Underpaid",obtainable:true,  category:"Misc"},
+];
+
+DB.sort((a,b) => b.crr - a.crr);
+
+function fmtCRR(v) {
+  if (v >= 1000000) return (v/1000000).toFixed(v%1000000===0?0:2)+'M';
+  if (v >= 1000)    return (v/1000).toFixed(v%1000===0?0:1)+'K';
+  if (v >= 1)       return v%1===0 ? String(v) : v.toFixed(2);
+  return v.toString();
+}
+
+function demandScore(d) {
+  const dl = d.toLowerCase();
+  if (dl.includes('high')) return 4;
+  if (dl.includes('moderate')||dl.includes('medium')) return 3;
+  if (dl.includes('low')) return 2;
+  return 1;
+}
+
+function demandClass(d) {
+  const s = demandScore(d);
+  if (s>=4) return 'demand-high';
+  if (s===3) return 'demand-mid';
+  if (s===2) return 'demand-low';
+  return 'demand-dead';
+}
+
+function stabClass(s) {
+  return s.toLowerCase().includes('unstable') ? 'stab-unstable' : 'stab-stable';
+}
+
+function tier(crr) {
+  if (crr>=500000) return 'S';
+  if (crr>=10000)  return 'A';
+  if (crr>=500)    return 'B';
+  if (crr>=20)     return 'C';
+  return 'D';
+}
+
+function renderVL() {
+  const q      = document.getElementById('vlSearch').value.toLowerCase();
+  const cat    = document.getElementById('vlCat').value;
+  const demand = document.getElementById('vlDemand').value;
+  const sort   = document.getElementById('vlSort').value;
+  let items = DB.filter(i => {
+    if (q && !i.name.toLowerCase().includes(q) && !i.category.toLowerCase().includes(q)) return false;
+    if (cat && !i.category.includes(cat)) return false;
+    if (demand) {
+      const ds = demandScore(i.demand);
+      if (demand==='high' && ds<4) return false;
+      if (demand==='mid'  && ds<3) return false;
+      if (demand==='low'  && ds!==2) return false;
+      if (demand==='dead' && ds!==1) return false;
+    }
+    return true;
+  });
+  const sortMap = {crr_desc:(a,b)=>b.crr-a.crr, crr_asc:(a,b)=>a.crr-b.crr,
+    name_asc:(a,b)=>a.name.localeCompare(b.name), demand_desc:(a,b)=>demandScore(b.demand)-demandScore(a.demand)};
+  items.sort(sortMap[sort]||sortMap.crr_desc);
+  const highD  = items.filter(i=>demandScore(i.demand)>=4).length;
+  const unob   = items.filter(i=>!i.obtainable).length;
+  const unstab = items.filter(i=>i.stability.toLowerCase().includes('unstable')).length;
+  document.getElementById('vlStats').innerHTML =
+    `<div class="vl-stat">Showing <span>${items.length}</span> items</div>
+     <div class="vl-stat">High demand <span>${highD}</span></div>
+     <div class="vl-stat">Unobtainable <span>${unob}</span></div>
+     <div class="vl-stat">Unstable <span>${unstab}</span></div>`;
+  const body = document.getElementById('vlBody');
+  const empty = document.getElementById('vlEmpty');
+  if (!items.length) { body.innerHTML=''; empty.style.display='block'; return; }
+  empty.style.display='none';
+  body.innerHTML = items.map(i => `
+    <tr onclick="loadToCalc('${i.name.replace(/'/g,"\\'")}')">
+      <td><span class="item-name">${i.name}</span><span class="tier-badge tier-${tier(i.crr)}">${tier(i.crr)}</span></td>
+      <td><span class="crr-val">${fmtCRR(i.crr)}</span></td>
+      <td><span class="cat-badge cat-${i.category}">${i.category}</span></td>
+      <td><span class="${demandClass(i.demand)}">${i.demand}</span></td>
+      <td><span class="${stabClass(i.stability)}">${i.stability}</span></td>
+      <td><span class="${i.obtainable?'obtainable-yes':'obtainable-no'}">${i.obtainable?'Yes':'No'}</span></td>
+    </tr>`).join('');
+}
+
+function loadToCalc(name) {
+  switchTab('tradecalc', document.querySelectorAll('.tab')[1]);
+  addItemWithName('give', name);
+}
+
+function switchTab(name, el) {
+  document.querySelectorAll('.tab:not(.pro)').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('panel-' + name).classList.add('active');
+}
+
+function showUpgrade() {
+  document.querySelectorAll('.tab:not(.pro)').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-pro').classList.add('active');
+}
+
+// TRADE CALC
+let giveItems = [], recvItems = [];
+
+function addItem(side) { addItemWithName(side, ''); }
+
+function addItemWithName(side, name) {
+  const arr = side==='give' ? giveItems : recvItems;
+  const match = name ? DB.find(i=>i.name.toLowerCase()===name.toLowerCase()) : null;
+  arr.push({ id: Date.now()+Math.random(), name, qty:1, crr: match?match.crr:0 });
+  renderTradeItems();
+}
+
+function removeItem(side, id) {
+  if (side==='give') giveItems = giveItems.filter(i=>i.id!==id);
+  else recvItems = recvItems.filter(i=>i.id!==id);
+  renderTradeItems();
+}
+
+function renderTradeItems() {
+  renderSide('give', giveItems, 'var(--accent2)');
+  renderSide('recv', recvItems, 'var(--gold)');
+  updateVerdict();
+}
+
+function renderSide(side, arr, color) {
+  const c = document.getElementById(side+'-items');
+  c.innerHTML = arr.map(item => `
+    <div class="trade-item-row">
+      <input type="text" placeholder="Item name..." value="${item.name}"
+        oninput="updateItemName('${side}',${item.id},this.value)" list="item-dl" style="flex:2;"/>
+      <input type="number" class="qty-input" placeholder="Qty" value="${item.qty}" min="1"
+        oninput="updateItemQty('${side}',${item.id},this.value)"/>
+      <span class="trade-item-crr" style="color:${color}" id="crr-${side}-${item.id}">${item.crr>0?fmtCRR(item.crr*item.qty):'—'}</span>
+      <button class="remove-btn" onclick="removeItem('${side}',${item.id})">✕</button>
+    </div>`).join('');
+  const total = arr.reduce((s,i)=>s+i.crr*i.qty,0);
+  document.getElementById(side+'-total').textContent = `Total: ${fmtCRR(total)} CRR`;
+}
+
+function updateItemName(side, id, val) {
+  const arr = side==='give'?giveItems:recvItems;
+  const item = arr.find(i=>i.id===id);
+  if(!item) return;
+  item.name = val;
+  const match = DB.find(i=>i.name.toLowerCase()===val.toLowerCase());
+  item.crr = match?match.crr:0;
+  const el = document.getElementById(`crr-${side}-${id}`);
+  if(el) el.textContent = item.crr>0?fmtCRR(item.crr*item.qty):'—';
+  const total = arr.reduce((s,i)=>s+i.crr*i.qty,0);
+  document.getElementById(side+'-total').textContent=`Total: ${fmtCRR(total)} CRR`;
+  updateVerdict();
+}
+
+function updateItemQty(side, id, val) {
+  const arr = side==='give'?giveItems:recvItems;
+  const item = arr.find(i=>i.id===id);
+  if(!item) return;
+  item.qty = Math.max(1,parseInt(val)||1);
+  const el = document.getElementById(`crr-${side}-${id}`);
+  if(el) el.textContent = item.crr>0?fmtCRR(item.crr*item.qty):'—';
+  const total = arr.reduce((s,i)=>s+i.crr*i.qty,0);
+  document.getElementById(side+'-total').textContent=`Total: ${fmtCRR(total)} CRR`;
+  updateVerdict();
+}
+
+function updateVerdict() {
+  const giveTotal = giveItems.reduce((s,i)=>s+i.crr*i.qty,0);
+  const recvTotal = recvItems.reduce((s,i)=>s+i.crr*i.qty,0);
+  const wrap = document.getElementById('trade-verdict');
+  if(giveTotal===0&&recvTotal===0){wrap.style.display='none';return;}
+  wrap.style.display='block';
+  const diff = recvTotal-giveTotal;
+  const pct  = giveTotal>0?((diff/giveTotal)*100):0;
+  let cls, emoji, title, detail;
+  if(diff>50){cls='winning';emoji='🟢';title="You're Winning!";detail=`You're getting ${fmtCRR(diff)} CRR more than you're giving — take this trade.`;}
+  else if(diff<-50){cls='losing';emoji='🔴';title="You're Losing!";detail=`You're giving ${fmtCRR(Math.abs(diff))} CRR more than you're getting — avoid or renegotiate.`;}
+  else{cls='even';emoji='🟡';title="Even Trade";detail='Both sides are roughly equal in value.';}
+  wrap.innerHTML=`
+    <div class="trade-verdict-box ${cls}">
+      <div class="verdict-emoji">${emoji}</div>
+      <div class="verdict-title">${title}</div>
+      <div class="verdict-detail">${detail}</div>
+      <div class="verdict-stats">
+        <div class="vstat"><div class="vstat-label">You Give</div><div class="vstat-val" style="color:var(--accent2)">${fmtCRR(giveTotal)} CRR</div></div>
+        <div class="vstat"><div class="vstat-label">You Receive</div><div class="vstat-val" style="color:var(--gold)">${fmtCRR(recvTotal)} CRR</div></div>
+        <div class="vstat"><div class="vstat-label">Difference</div><div class="vstat-val" style="color:${diff>=0?'var(--accent2)':'var(--red)'}">${diff>=0?'+':''}${fmtCRR(diff)} CRR</div></div>
+        <div class="vstat"><div class="vstat-label">Win/Loss %</div><div class="vstat-val" style="color:${pct>=0?'var(--accent2)':'var(--red)'}">${pct>=0?'+':''}${pct.toFixed(1)}%</div></div>
+      </div>
+    </div>`;
+}
+
+// Datalist autocomplete
+const dl = document.createElement('datalist');
+dl.id = 'item-dl';
+DB.forEach(i=>{const o=document.createElement('option');o.value=i.name;dl.appendChild(o);});
+document.body.appendChild(dl);
+
+// Init
+addItem('give'); addItem('recv');
+renderVL();
+</script>
+</body>
+</html>
