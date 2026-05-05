@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bricks Value Hub — Value List</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#07090f;--bg1:#0e1118;--bg2:#141720;--bg3:#1c2030;--accent:#3d8bff;--accent2:#00e0a0;--gold:#ffc840;--red:#ff3d5a;--text:#eef0f8;--muted:#5a6380;--soft:#9aa0b8;--display:'Bebas Neue',sans-serif;--body:'DM Sans',sans-serif;--mono:'DM Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);min-height:100vh;}
+nav{padding:16px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,9,15,0.9);border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;z-index:100;backdrop-filter:blur(16px);}
+.nav-logo{font-family:var(--display);font-size:22px;letter-spacing:0.06em;color:var(--text);text-decoration:none;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{font-size:13px;color:var(--soft);text-decoration:none;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{background:var(--accent);color:#fff !important;padding:7px 18px;border-radius:7px;font-size:13px;font-weight:600;}
+.page-header{padding:48px 40px 32px;border-bottom:1px solid rgba(255,255,255,0.06);background:var(--bg1);}
+.page-header h1{font-family:var(--display);font-size:48px;letter-spacing:0.04em;margin-bottom:6px;}
+.page-header p{font-size:14px;color:var(--soft);font-family:var(--mono);}
+.controls{padding:16px 40px;background:var(--bg1);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:10px;flex-wrap:wrap;}
+.search{flex:1;min-width:200px;max-width:340px;background:var(--bg3);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:9px 14px;color:var(--text);font-family:var(--mono);font-size:13px;}
+.search:focus{outline:none;border-color:var(--accent);}
+.filt{background:var(--bg3);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:9px 12px;color:var(--soft);font-family:var(--mono);font-size:12px;cursor:pointer;}
+.filt option{background:var(--bg2);}
+.stats-row{padding:10px 40px;font-size:11px;font-family:var(--mono);color:var(--muted);}
+.stats-row span{color:var(--text);}
+table{width:100%;border-collapse:collapse;}
+thead th{padding:11px 20px;text-align:left;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-family:var(--mono);font-weight:500;border-bottom:1px solid rgba(255,255,255,0.07);background:var(--bg1);position:sticky;top:57px;z-index:10;white-space:nowrap;}
+td{padding:11px 20px;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px;vertical-align:middle;}
+tr:hover td{background:rgba(61,139,255,0.03);}
+.iname{font-weight:600;}.icat{font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:1px;}
+.crr{font-weight:700;color:var(--accent);font-family:var(--mono);}
+.tier{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;margin-left:6px;vertical-align:middle;font-family:var(--mono);}
+.tS{background:rgba(255,61,90,0.18);color:#ff3d5a;}.tA{background:rgba(255,200,64,0.18);color:#ffc840;}.tB{background:rgba(61,139,255,0.18);color:#3d8bff;}.tC{background:rgba(0,224,160,0.15);color:#00e0a0;}.tD{background:rgba(90,99,128,0.2);color:#5a6380;}
+.dh{color:var(--accent2);font-weight:600;}.dm{color:var(--gold);}.dl{color:var(--red);}.dd{color:var(--muted);}
+.su{color:var(--red);}.ss{color:var(--gold);}
+.ob-yes{color:var(--accent2);}.ob-no{color:var(--red);font-weight:700;}
+.cat-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-family:var(--mono);}
+.cb-Sets{background:rgba(180,100,255,0.12);color:#c07bff;}.cb-Boss{background:rgba(255,61,90,0.1);color:#ff7090;}.cb-Misc{background:rgba(61,139,255,0.1);color:#3d8bff;}.cb-Ascension{background:rgba(0,224,160,0.1);color:#00e0a0;}.cb-Relic{background:rgba(255,200,64,0.1);color:#ffc840;}.cb-Gamepass{background:rgba(255,140,0,0.12);color:#ff9a30;}.cb-Crafting{background:rgba(100,200,100,0.1);color:#78d878;}.cb-Chests{background:rgba(200,150,50,0.1);color:#c8a050;}.cb-Value{background:rgba(150,150,150,0.1);color:#aaa;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">🧱 Bricks <span>Value</span> Hub</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/BricksValueHub_Free.html">Free Tool</a>
+    <a href="https://discord.gg/mz9KKtzwcs" target="_blank">Discord</a>
+    <a href="https://buy.stripe.com/7sY14n7AZ2Tne0c0Jd2wU00" class="nav-cta" target="_blank">Get Pro — $5/mo</a>
+  </div>
+</nav>
+<div class="page-header"><h1>VALUE LIST</h1><p>Official Vaulted Values · Updated regularly · 180+ items</p></div>
+<div class="controls">
+  <input class="search" id="srch" placeholder="Search items..." oninput="render()"/>
+  <select class="filt" id="fCat" onchange="render()"><option value="">All categories</option><option>Sets</option><option>Ascension</option><option>Relic</option><option>Gamepass</option><option>Boss</option><option>Chests</option><option>Misc</option><option>Crafting</option></select>
+  <select class="filt" id="fDemand" onchange="render()"><option value="">All demand</option><option value="high">High</option><option value="mid">Mid</option><option value="low">Low</option><option value="dead">Dead</option></select>
+  <select class="filt" id="fObtain" onchange="render()"><option value="">All</option><option value="yes">Obtainable</option><option value="no">Unobtainable</option></select>
+  <select class="filt" id="fSort" onchange="render()"><option value="crr_desc">CRR High→Low</option><option value="crr_asc">CRR Low→High</option><option value="name">Name A→Z</option><option value="demand">Best demand</option></select>
+</div>
+<div class="stats-row" id="statsRow"></div>
+<div style="overflow-x:auto;">
+<table><thead><tr><th>Item</th><th>CRR Value</th><th>Category</th><th>Demand</th><th>Stability</th><th>Obtainable</th></tr></thead><tbody id="tbody"></tbody></table>
+</div>
+<script>
+const DB=[{name:"Ragna Set",crr:3000000,demand:"High 8",stability:"Stable",obtainable:false,category:"Sets"},{name:"Madoka Set (with Hearts)",crr:1600000,demand:"High 8",stability:"Stable",obtainable:false,category:"Sets"},{name:"Madoka Set (without Hearts)",crr:750000,demand:"High 1",stability:"Stable",obtainable:false,category:"Sets"},{name:"2x Drop Gamepass",crr:589999,demand:"High 1",stability:"Unstable",obtainable:true,category:"Gamepass"},{name:"2x Luck Gamepass",crr:426000,demand:"High 1",stability:"Unstable",obtainable:true,category:"Gamepass"},{name:"2x Gems Gamepass",crr:399000,demand:"Medium 8",stability:"Stable",obtainable:true,category:"Gamepass"},{name:"Damage Relic Set",crr:214000,demand:"Moderate 2",stability:"Stable",obtainable:true,category:"Relic"},{name:"Cosmic Being (Spec)",crr:65000,demand:"Moderate 1",stability:"Stable",obtainable:true,category:"Sets"},{name:"2x Exp Gamepass",crr:56000,demand:"Low",stability:"Stable",obtainable:true,category:"Gamepass"},{name:"Luck Relic Set",crr:55000,demand:"Moderate 1",stability:"Stable",obtainable:true,category:"Relic"},{name:"Crit Damage Set",crr:50500,demand:"Dead",stability:"Stable",obtainable:true,category:"Relic"},{name:"Frieren Set (w/Hearts)",crr:50000,demand:"N/A",stability:"Unstable",obtainable:true,category:"Sets"},{name:"2x Money Gamepass",crr:50000,demand:"Low",stability:"Stable",obtainable:true,category:"Gamepass"},{name:"Crit Chance Set",crr:39500,demand:"Dead",stability:"Stable",obtainable:true,category:"Relic"},{name:"Ascension 3",crr:6527,demand:"Moderate 5",stability:"Stable",obtainable:true,category:"Ascension"},{name:"The World (Full Set)",crr:6000,demand:"Moderate 1",stability:"Stable",obtainable:true,category:"Sets"},{name:"Guild Key",crr:5000,demand:"Low",stability:"Stable",obtainable:true,category:"Misc"},{name:"The World (Spec Set)",crr:4740,demand:"Moderate 1",stability:"Stable",obtainable:true,category:"Sets"},{name:"Monster Pulse",crr:4000,demand:"High 5",stability:"Unstable",obtainable:true,category:"Boss"},{name:"Hearts",crr:8500,demand:"Medium 6",stability:"Unstable",obtainable:false,category:"Misc"},{name:"Ascension 10",crr:3250,demand:"Moderate 6",stability:"Stable",obtainable:true,category:"Ascension"},{name:"Star Mark",crr:3000,demand:"High 3",stability:"Unstable",obtainable:true,category:"Boss"},{name:"Galaxy Shard",crr:3000,demand:"High 6",stability:"Unstable",obtainable:true,category:"Boss"},{name:"Ascension 9",crr:3070,demand:"Moderate 6",stability:"Stable",obtainable:true,category:"Ascension"},{name:"Madara (Full Set)",crr:2910,demand:"Medium 1",stability:"Stable",obtainable:true,category:"Sets"},{name:"Ascension 4",crr:2778,demand:"Moderate 6",stability:"Stable",obtainable:true,category:"Ascension"},{name:"Ascension 6",crr:2587,demand:"Moderate 4",stability:"Stable",obtainable:true,category:"Ascension"},{name:"Aizen V1 (Spec Set)",crr:2134,demand:"Dead",stability:"Stable",obtainable:true,category:"Sets"},{name:"Ascension 5",crr:2186,demand:"Moderate 4",stability:"Stable",obtainable:true,category:"Ascension"},{name:"Madara (Mastery Set)",crr:1870,demand:"Medium 1",stability:"Stable",obtainable:true,category:"Sets"},{name:"Ascension 8",crr:1895,demand:"Moderate 1",stability:"Stable",obtainable:true,category:"Ascension"},{name:"Cosmic Essence",crr:1500,demand:"High 2",stability:"Unstable",obtainable:true,category:"Boss"},{name:"Ascension 7",crr:1380,demand:"Moderate 1",stability:"Stable",obtainable:true,category:"Ascension"},{name:"Gilgamesh (Full Set)",crr:1254,demand:"Medium 1",stability:"Stable",obtainable:true,category:"Sets"},{name:"Gilgamesh (Babylon)",crr:1254,demand:"Medium 1",stability:"Stable",obtainable:true,category:"Sets"},{name:"Mana Core",crr:1000,demand:"Moderate 4",stability:"Stable",obtainable:true,category:"Boss"},{name:"Vampire Omen",crr:500,demand:"High 4",stability:"Unstable",obtainable:true,category:"Boss"},{name:"World Core",crr:370,demand:"High 5",stability:"Unstable",obtainable:true,category:"Boss"},{name:"Dominion Brand",crr:28,demand:"High 7",stability:"Unstable",obtainable:true,category:"Boss"},{name:"Time Remnant",crr:150,demand:"High 5",stability:"Unstable",obtainable:true,category:"Boss"},{name:"Secret Chest",crr:80,demand:"High 3",stability:"Stable",obtainable:true,category:"Chests"},{name:"Power Fragment",crr:30,demand:"High 1",stability:"Unstable",obtainable:true,category:"Boss"},{name:"Clan Reroll",crr:1,demand:"N/A",stability:"N/A",obtainable:true,category:"Value"},{name:"Bloodline Stone",crr:40,demand:"N/A",stability:"N/A",obtainable:true,category:"Value"}];
+function fmtCRR(v){if(v>=1000000)return(v/1000000).toFixed(2).replace(/\.?0+$/,'')+'M';if(v>=1000)return(v/1000).toFixed(1).replace(/\.0$/,'')+'K';return String(v);}
+function dScore(d){const dl=d.toLowerCase();if(dl.includes('high'))return 4;if(dl.includes('moderate')||dl.includes('medium'))return 3;if(dl.includes('low'))return 2;return 1;}
+function dClass(d){const s=dScore(d);if(s>=4)return'dh';if(s===3)return'dm';if(s===2)return'dl';return'dd';}
+function tier(c){if(c>=500000)return'S';if(c>=10000)return'A';if(c>=500)return'B';if(c>=20)return'C';return'D';}
+function render(){
+  const q=document.getElementById('srch').value.toLowerCase(),cat=document.getElementById('fCat').value,dem=document.getElementById('fDemand').value,ob=document.getElementById('fObtain').value,sort=document.getElementById('fSort').value;
+  let items=[...DB];
+  if(q)items=items.filter(i=>i.name.toLowerCase().includes(q)||i.category.toLowerCase().includes(q));
+  if(cat)items=items.filter(i=>i.category===cat);
+  if(dem)items=items.filter(i=>{const s=dScore(i.demand);return dem==='high'?s>=4:dem==='mid'?s===3:dem==='low'?s===2:s===1;});
+  if(ob==='yes')items=items.filter(i=>i.obtainable);if(ob==='no')items=items.filter(i=>!i.obtainable);
+  const sm={crr_desc:(a,b)=>b.crr-a.crr,crr_asc:(a,b)=>a.crr-b.crr,name:(a,b)=>a.name.localeCompare(b.name),demand:(a,b)=>dScore(b.demand)-dScore(a.demand)};
+  items.sort(sm[sort]||sm.crr_desc);
+  document.getElementById('statsRow').innerHTML=`Showing <span>${items.length}</span> of ${DB.length} items`;
+  document.getElementById('tbody').innerHTML=items.map(i=>{const t=tier(i.crr),sc=i.stability.toLowerCase().includes('unstable')?'su':'ss';return`<tr><td><div class="iname">${i.name}<span class="tier t${t}">${t}</span></div><div class="icat">${i.category}</div></td><td><span class="crr">${fmtCRR(i.crr)}</span></td><td><span class="cat-badge cb-${i.category}">${i.category}</span></td><td><span class="${dClass(i.demand)}">${i.demand}</span></td><td><span class="${sc}">${i.stability}</span></td><td><span class="${i.obtainable?'ob-yes':'ob-no'}">${i.obtainable?'Yes':'No'}</span></td></tr>`;}).join('');
+}
+render();
+</script>
+</body>
+</html>
