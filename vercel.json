@@ -1,3 +1,10 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/free", "dest": "/BricksValueHub_Free.html" },
+    { "src": "/pro", "dest": "/pro.html" },
+    { "src": "/values", "dest": "/values.html" }
+  ]
 }
