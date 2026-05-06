@@ -296,7 +296,26 @@ h1 span{color:var(--accent);}
 </div>
 
 <script>
-const DB = [
+let DB = [];
+
+// Load DB from GitHub db.json — values are always current regardless of file version
+
+const DB_URL = 'https://raw.githubusercontent.com/PurpleTryx/bvh-website/main/db.json';
+async function loadBVHDB() {
+  try {
+    const res = await fetch(DB_URL + '?t=' + Date.now());
+    const data = await res.json();
+    DB = data.items || [];
+    console.log('BVH DB loaded: ' + DB.length + ' items');
+    if (typeof onDBLoaded === 'function') onDBLoaded();
+  } catch(e) {
+    console.warn('Could not load db.json, using bundled DB');
+    DB = DB_BUNDLED;
+  }
+}
+loadBVHDB();
+
+const DB_BUNDLED = [
   {name:"Ragna Set",               crr:3000000, demand:"High 8",      stability:"Stable",   obtainable:false, category:"Sets"},
   {name:"Madoka Set (with Hearts)",crr:1600000, demand:"High 8",      stability:"Stable",   obtainable:false, category:"Sets"},
   {name:"Madoka Set (without Hearts)",crr:750000,demand:"High 1",     stability:"Stable",   obtainable:false, category:"Sets"},
