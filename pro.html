@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bricks Value Hub — Pro Tool</title>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="X-Frame-Options" content="DENY"/>
+<meta http-equiv="Referrer-Policy" content="no-referrer"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#07090f;--bg1:#0e1118;--bg2:#141720;--bg3:#1c2030;--accent:#3d8bff;--accent2:#00e0a0;--gold:#ffc840;--red:#ff3d5a;--text:#eef0f8;--muted:#5a6380;--soft:#9aa0b8;--display:'Bebas Neue',sans-serif;--body:'DM Sans',sans-serif;--mono:'DM Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);min-height:100vh;display:flex;flex-direction:column;}
+body::before{content:'';position:fixed;inset:0;z-index:0;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");pointer-events:none;}
+nav{position:relative;z-index:10;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,9,15,0.9);border-bottom:1px solid rgba(255,255,255,0.06);}
+.nav-logo{font-family:var(--display);font-size:22px;letter-spacing:0.06em;color:var(--text);text-decoration:none;}
+.nav-logo span{color:var(--accent);}
+.back-link{font-size:13px;color:var(--soft);text-decoration:none;}
+.back-link:hover{color:var(--text);}
+#lockScreen{position:relative;z-index:1;flex:1;display:flex;align-items:center;justify-content:center;padding:40px 24px;}
+.lock-box{background:var(--bg1);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:48px 40px;max-width:420px;width:100%;text-align:center;}
+.lock-icon{font-size:48px;margin-bottom:20px;}
+.lock-title{font-family:var(--display);font-size:36px;letter-spacing:0.04em;margin-bottom:8px;}
+.lock-sub{font-size:14px;color:var(--soft);margin-bottom:32px;line-height:1.6;font-weight:300;}
+.lock-input{width:100%;background:var(--bg3);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:13px 16px;color:var(--text);font-family:var(--mono);font-size:18px;text-align:center;letter-spacing:0.15em;margin-bottom:12px;}
+.lock-input:focus{outline:none;border-color:var(--accent);}
+.lock-input:disabled{opacity:0.4;cursor:not-allowed;}
+.lock-btn{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:13px;font-family:var(--body);font-size:15px;font-weight:600;cursor:pointer;transition:opacity 0.15s;}
+.lock-btn:hover{opacity:0.88;}
+.lock-btn:disabled{opacity:0.4;cursor:not-allowed;}
+.lock-error{font-size:13px;color:var(--red);margin-top:10px;display:none;font-family:var(--mono);}
+.lock-warn{font-size:13px;color:var(--gold);margin-top:10px;display:none;font-family:var(--mono);}
+.lock-links{margin-top:24px;display:flex;flex-direction:column;gap:10px;}
+.lock-link{font-size:13px;color:var(--muted);text-decoration:none;font-family:var(--mono);}
+.lock-link span{color:var(--accent);}
+.attempts-bar{height:3px;background:var(--bg3);border-radius:2px;margin-top:14px;overflow:hidden;}
+.attempts-fill{height:100%;border-radius:2px;transition:width 0.3s,background 0.3s;}
+#proContent{display:none;flex:1;flex-direction:column;}
+#proFrame{flex:1;border:none;width:100%;min-height:calc(100vh - 57px);}
+@keyframes shake{0%,100%{transform:translateX(0);}20%,60%{transform:translateX(-8px);}40%,80%{transform:translateX(8px);}}
+.shake{animation:shake 0.4s ease;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">🧱 Bricks <span>Value</span> Hub</a>
+  <a href="/" class="back-link">← Back to home</a>
+</nav>
+<div id="lockScreen">
+  <div class="lock-box">
+    <div class="lock-icon">🔐</div>
+    <div class="lock-title">PRO ACCESS</div>
+    <div class="lock-sub">Enter the password from your Discord support ticket.</div>
+    <input class="lock-input" type="password" id="passInput" placeholder="••••-••••" onkeydown="if(event.key==='Enter')checkPass()"/>
+    <button class="lock-btn" id="lockBtn" onclick="checkPass()">Unlock Pro Tool →</button>
+    <div class="lock-error" id="lockError">⚠ Incorrect password. Check your Discord ticket.</div>
+    <div class="lock-warn" id="lockWarn"></div>
+    <div class="attempts-bar"><div class="attempts-fill" id="attemptsFill" style="width:0%;background:var(--accent2);"></div></div>
+    <div class="lock-links">
+      <a href="https://buy.stripe.com/7sY14n7AZ2Tne0c0Jd2wU00" class="lock-link" target="_blank" rel="noopener noreferrer">Not subscribed? <span>Subscribe for $5/month →</span></a>
+      <a href="https://discord.gg/mz9KKtzwcs" class="lock-link" target="_blank" rel="noopener noreferrer">Already paid? <span>Join Discord to get your password →</span></a>
+    </div>
+  </div>
+</div>
+<div id="proContent"><iframe id="proFrame" src="" sandbox="allow-scripts allow-same-origin allow-forms"></iframe></div>
+<script>
+// Password obfuscated with XOR+base64 — not readable in plain text
+const _k=42,_h='HxkTHAcbEx4a';
+function _d(h){try{return atob(h).split('').map(c=>String.fromCharCode(c.charCodeAt(0)^_k)).join('');}catch(e){return '';}}
+
+const MAX_ATTEMPTS=5, LOCKOUT_MS=10*60*1000;
+
+function getAttempts(){return parseInt(sessionStorage.getItem('bvh_a')||'0');}
+function setAttempts(n){sessionStorage.setItem('bvh_a',n);}
+function getLockout(){return parseInt(sessionStorage.getItem('bvh_l')||'0');}
+function setLockout(t){sessionStorage.setItem('bvh_l',t);}
+
+function updateBar(n){
+  const pct=Math.min(100,(n/MAX_ATTEMPTS)*100);
+  const f=document.getElementById('attemptsFill');
+  f.style.width=pct+'%';
+  f.style.background=pct>=80?'var(--red)':pct>=60?'var(--gold)':'var(--accent2)';
+}
+
+function checkLockout(){
+  const lo=getLockout(); if(!lo) return false;
+  const rem=lo-Date.now();
+  if(rem<=0){sessionStorage.removeItem('bvh_l');sessionStorage.removeItem('bvh_a');return false;}
+  const mins=Math.ceil(rem/60000);
+  const w=document.getElementById('lockWarn');
+  w.textContent='🔒 Too many attempts. Try again in '+mins+' minute'+(mins>1?'s':'')+'.';
+  w.style.display='block';
+  document.getElementById('passInput').disabled=true;
+  document.getElementById('lockBtn').disabled=true;
+  setTimeout(()=>{if(!checkLockout()){document.getElementById('passInput').disabled=false;document.getElementById('lockBtn').disabled=false;w.style.display='none';setAttempts(0);updateBar(0);}},5000);
+  return true;
+}
+
+function checkPass(){
+  if(checkLockout()) return;
+  const input=document.getElementById('passInput');
+  const error=document.getElementById('lockError');
+  const entered=input.value.trim();
+  const correct=_d(_h);
+  // Constant-time comparison — prevents timing attacks
+  let match=entered.length===correct.length, diff=0;
+  for(let i=0;i<Math.max(entered.length,correct.length);i++) diff|=(entered.charCodeAt(i)||0)^(correct.charCodeAt(i)||0);
+  match=match&&diff===0;
+
+  if(match){
+    sessionStorage.removeItem('bvh_a'); sessionStorage.removeItem('bvh_l');
+    document.getElementById('lockScreen').style.display='none';
+    const content=document.getElementById('proContent');
+    content.style.display='flex';
+    fetch('BricksValueHub_Pro.html').then(r=>r.text()).then(html=>{document.getElementById('proFrame').srcdoc=html;})
+    .catch(()=>{content.innerHTML='<p style="padding:40px;color:#ff3d5a;font-family:monospace;text-align:center;">Error loading Pro tool. Please open a support ticket in Discord.</p>';});
+    error.style.display='none';
+  } else {
+    const attempts=getAttempts()+1;
+    setAttempts(attempts); updateBar(attempts);
+    input.value=''; input.focus();
+    input.classList.add('shake'); setTimeout(()=>input.classList.remove('shake'),400);
+    if(attempts>=MAX_ATTEMPTS){
+      setLockout(Date.now()+LOCKOUT_MS);
+      checkLockout();
+    } else {
+      const rem=MAX_ATTEMPTS-attempts;
+      error.textContent='⚠ Incorrect password. '+rem+' attempt'+(rem!==1?'s':'')+' remaining.';
+      error.style.display='block';
+    }
+  }
+}
+checkLockout(); updateBar(getAttempts());
+</script>
+</body>
+</html>
