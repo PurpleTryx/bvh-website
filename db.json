@@ -1,10 +1,11 @@
 {
-  "version": 1,
+  "version": 2,
   "updated": "2026-05-06",
+  "updatedBy": "BVH Trade Intelligence",
   "items": [
     {
       "name": "Ragna Set",
-      "crr": 3000000.0,
+      "crr": 2855325,
       "demand": "High 8",
       "stability": "Stable",
       "obtainable": false,
@@ -12,7 +13,7 @@
     },
     {
       "name": "Madoka Set (with Hearts)",
-      "crr": 1600000.0,
+      "crr": 1600000,
       "demand": "High 8",
       "stability": "Stable",
       "obtainable": false,
@@ -20,7 +21,7 @@
     },
     {
       "name": "Madoka Set (without Hearts)",
-      "crr": 750000.0,
+      "crr": 750000,
       "demand": "High 1",
       "stability": "Stable",
       "obtainable": false,
@@ -28,7 +29,7 @@
     },
     {
       "name": "2x Drop Gamepass",
-      "crr": 589999.0,
+      "crr": 521433,
       "demand": "High 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -36,7 +37,7 @@
     },
     {
       "name": "2x Luck Gamepass",
-      "crr": 426000.0,
+      "crr": 418750,
       "demand": "High 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -44,7 +45,7 @@
     },
     {
       "name": "2x Gems Gamepass",
-      "crr": 399000.0,
+      "crr": 165000,
       "demand": "Medium 8",
       "stability": "Stable",
       "obtainable": true,
@@ -52,7 +53,7 @@
     },
     {
       "name": "Damage Relic Set",
-      "crr": 214000.0,
+      "crr": 13000,
       "demand": "Moderate 2",
       "stability": "Stable",
       "obtainable": true,
@@ -60,7 +61,7 @@
     },
     {
       "name": "Cosmic Being (Spec)",
-      "crr": 65000.0,
+      "crr": 65000,
       "demand": "Moderate 1",
       "stability": "Stable",
       "obtainable": true,
@@ -68,7 +69,7 @@
     },
     {
       "name": "2x Exp Gamepass",
-      "crr": 56000.0,
+      "crr": 90000,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -76,7 +77,7 @@
     },
     {
       "name": "Luck Relic Set",
-      "crr": 55000.0,
+      "crr": 55270,
       "demand": "Moderate 1",
       "stability": "Stable",
       "obtainable": true,
@@ -84,7 +85,7 @@
     },
     {
       "name": "Crit Damage Set",
-      "crr": 50500.0,
+      "crr": 50500,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -92,7 +93,7 @@
     },
     {
       "name": "Frieren Set (w/Eggs)",
-      "crr": 50000.0,
+      "crr": 50000,
       "demand": "N/A",
       "stability": "Unstable",
       "obtainable": true,
@@ -100,7 +101,7 @@
     },
     {
       "name": "2x Money Gamepass",
-      "crr": 50000.0,
+      "crr": 50000,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -108,7 +109,7 @@
     },
     {
       "name": "Crit Chance Set",
-      "crr": 39500.0,
+      "crr": 39500,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -116,7 +117,7 @@
     },
     {
       "name": "Ascension 3",
-      "crr": 6527.0,
+      "crr": 6530,
       "demand": "Moderate 5",
       "stability": "Stable",
       "obtainable": true,
@@ -124,7 +125,7 @@
     },
     {
       "name": "The World (Full Set)",
-      "crr": 6000.0,
+      "crr": 6000,
       "demand": "Moderate 1",
       "stability": "Stable",
       "obtainable": true,
@@ -132,7 +133,7 @@
     },
     {
       "name": "Guild Key",
-      "crr": 5000.0,
+      "crr": 5000,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -140,7 +141,7 @@
     },
     {
       "name": "The World (Spec Set)",
-      "crr": 4740.0,
+      "crr": 4740,
       "demand": "Moderate 1",
       "stability": "Stable",
       "obtainable": true,
@@ -148,7 +149,7 @@
     },
     {
       "name": "Monster Pulse",
-      "crr": 4000.0,
+      "crr": 4100,
       "demand": "High 5",
       "stability": "Unstable",
       "obtainable": true,
@@ -156,7 +157,7 @@
     },
     {
       "name": "Hearts",
-      "crr": 8500.0,
+      "crr": 11000,
       "demand": "Medium 6",
       "stability": "Unstable",
       "obtainable": false,
@@ -164,7 +165,7 @@
     },
     {
       "name": "Ascension 10",
-      "crr": 3250.0,
+      "crr": 3250,
       "demand": "Moderate 6",
       "stability": "Stable",
       "obtainable": true,
@@ -172,7 +173,7 @@
     },
     {
       "name": "Star Mark",
-      "crr": 3000.0,
+      "crr": 3000,
       "demand": "High 3",
       "stability": "Unstable",
       "obtainable": true,
@@ -180,7 +181,7 @@
     },
     {
       "name": "Galaxy Shard",
-      "crr": 3000.0,
+      "crr": 3214,
       "demand": "High 6",
       "stability": "Unstable",
       "obtainable": true,
@@ -188,7 +189,7 @@
     },
     {
       "name": "Ascension 9",
-      "crr": 3070.0,
+      "crr": 3070,
       "demand": "Moderate 6",
       "stability": "Stable",
       "obtainable": true,
@@ -196,7 +197,7 @@
     },
     {
       "name": "Madara (Full Set)",
-      "crr": 2910.0,
+      "crr": 2910,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -204,7 +205,7 @@
     },
     {
       "name": "Ascension 4",
-      "crr": 2778.0,
+      "crr": 2780,
       "demand": "Moderate 6",
       "stability": "Stable",
       "obtainable": true,
@@ -212,7 +213,7 @@
     },
     {
       "name": "Ascension 6",
-      "crr": 2587.0,
+      "crr": 2590,
       "demand": "Moderate 4",
       "stability": "Stable",
       "obtainable": true,
@@ -220,7 +221,7 @@
     },
     {
       "name": "Aizen V1 (Spec Set)",
-      "crr": 2134.0,
+      "crr": 2134,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -228,7 +229,7 @@
     },
     {
       "name": "Ascension 5",
-      "crr": 2186.0,
+      "crr": 2190,
       "demand": "Moderate 4",
       "stability": "Stable",
       "obtainable": true,
@@ -236,7 +237,7 @@
     },
     {
       "name": "Madara (Mastery Set)",
-      "crr": 1870.0,
+      "crr": 1870,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -244,7 +245,7 @@
     },
     {
       "name": "Ascension 8",
-      "crr": 1895.0,
+      "crr": 1900,
       "demand": "Moderate 1",
       "stability": "Stable",
       "obtainable": true,
@@ -252,7 +253,7 @@
     },
     {
       "name": "Sung Jinwoo v1",
-      "crr": 1691.0,
+      "crr": 1691,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -260,7 +261,7 @@
     },
     {
       "name": "Alucard Set",
-      "crr": 1671.0,
+      "crr": 1671,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -268,7 +269,7 @@
     },
     {
       "name": "Esdeath (Full Set)",
-      "crr": 1613.0,
+      "crr": 1613,
       "demand": "Medium 2",
       "stability": "Stable",
       "obtainable": true,
@@ -276,7 +277,7 @@
     },
     {
       "name": "Sukuna v1 Set",
-      "crr": 1545.0,
+      "crr": 1545,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -284,7 +285,7 @@
     },
     {
       "name": "Cosmic Essence",
-      "crr": 1500.0,
+      "crr": 1542,
       "demand": "High 2",
       "stability": "Unstable",
       "obtainable": true,
@@ -292,7 +293,7 @@
     },
     {
       "name": "Ascension 7",
-      "crr": 1380.0,
+      "crr": 1380,
       "demand": "Moderate 1",
       "stability": "Stable",
       "obtainable": true,
@@ -300,7 +301,7 @@
     },
     {
       "name": "Relic Part #3",
-      "crr": 1300.0,
+      "crr": 1300,
       "demand": "Medium 6",
       "stability": "Stable",
       "obtainable": true,
@@ -308,7 +309,7 @@
     },
     {
       "name": "Relic Part #1",
-      "crr": 1300.0,
+      "crr": 1300,
       "demand": "Medium 6",
       "stability": "Stable",
       "obtainable": true,
@@ -316,7 +317,7 @@
     },
     {
       "name": "Relic Part #7",
-      "crr": 1200.0,
+      "crr": 1200,
       "demand": "Medium 5",
       "stability": "Stable",
       "obtainable": true,
@@ -324,7 +325,7 @@
     },
     {
       "name": "Relic Part #8",
-      "crr": 1200.0,
+      "crr": 1200,
       "demand": "Medium 5",
       "stability": "Stable",
       "obtainable": true,
@@ -332,7 +333,7 @@
     },
     {
       "name": "The World (Mastery)",
-      "crr": 1260.0,
+      "crr": 1260,
       "demand": "Medium 10",
       "stability": "Stable",
       "obtainable": true,
@@ -340,7 +341,7 @@
     },
     {
       "name": "Gilgamesh (Full Set)",
-      "crr": 1254.0,
+      "crr": 1254,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -348,7 +349,7 @@
     },
     {
       "name": "Saber V2 (Full Set)",
-      "crr": 1241.0,
+      "crr": 1241,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -356,7 +357,7 @@
     },
     {
       "name": "Mana Core",
-      "crr": 1000.0,
+      "crr": 1000,
       "demand": "Moderate 4",
       "stability": "Stable",
       "obtainable": true,
@@ -364,7 +365,7 @@
     },
     {
       "name": "Relic Part #5",
-      "crr": 1000.0,
+      "crr": 1000,
       "demand": "Medium 4",
       "stability": "Stable",
       "obtainable": true,
@@ -372,7 +373,7 @@
     },
     {
       "name": "Relic Part #6",
-      "crr": 1000.0,
+      "crr": 1000,
       "demand": "Medium 4",
       "stability": "Stable",
       "obtainable": true,
@@ -380,7 +381,7 @@
     },
     {
       "name": "Esdeath (Mastery Set)",
-      "crr": 1045.0,
+      "crr": 1045,
       "demand": "Medium 2",
       "stability": "Stable",
       "obtainable": true,
@@ -388,7 +389,7 @@
     },
     {
       "name": "Aizen v2 (Full Set)",
-      "crr": 1041.0,
+      "crr": 1041,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -396,7 +397,7 @@
     },
     {
       "name": "Madara (Spec Set)",
-      "crr": 1040.0,
+      "crr": 1040,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -404,7 +405,7 @@
     },
     {
       "name": "Yamato Set",
-      "crr": 988.0,
+      "crr": 988,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -412,7 +413,7 @@
     },
     {
       "name": "Relic Part #2",
-      "crr": 900.0,
+      "crr": 900,
       "demand": "Medium 2",
       "stability": "Stable",
       "obtainable": true,
@@ -420,7 +421,7 @@
     },
     {
       "name": "Relic Part #4",
-      "crr": 900.0,
+      "crr": 900,
       "demand": "Medium 2",
       "stability": "Stable",
       "obtainable": true,
@@ -428,7 +429,7 @@
     },
     {
       "name": "Magic Essence",
-      "crr": 900.0,
+      "crr": 900,
       "demand": "Moderate 4",
       "stability": "Stable",
       "obtainable": true,
@@ -436,7 +437,7 @@
     },
     {
       "name": "Azure Heart",
-      "crr": 900.0,
+      "crr": 8750,
       "demand": "Moderate 6",
       "stability": "Unstable",
       "obtainable": true,
@@ -444,7 +445,7 @@
     },
     {
       "name": "Path Fragment",
-      "crr": 900.0,
+      "crr": 900,
       "demand": "Moderate 4",
       "stability": "Unstable",
       "obtainable": true,
@@ -452,7 +453,7 @@
     },
     {
       "name": "Gilgamesh (Babylon)",
-      "crr": 1254.0,
+      "crr": 1254,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -460,7 +461,7 @@
     },
     {
       "name": "Saber V2 (Mastery)",
-      "crr": 910.0,
+      "crr": 910,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -468,7 +469,7 @@
     },
     {
       "name": "Gojo v2 (Full Set)",
-      "crr": 863.0,
+      "crr": 863,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -476,7 +477,7 @@
     },
     {
       "name": "Sukuna v2 (Full Set)",
-      "crr": 852.0,
+      "crr": 852,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -484,7 +485,7 @@
     },
     {
       "name": "Kokushibo (Full Set)",
-      "crr": 804.0,
+      "crr": 804,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -492,7 +493,7 @@
     },
     {
       "name": "Blood Ring",
-      "crr": 625.0,
+      "crr": 1092,
       "demand": "Moderate 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -500,7 +501,7 @@
     },
     {
       "name": "Ancient Fragment",
-      "crr": 600.0,
+      "crr": 600,
       "demand": "Moderate 4",
       "stability": "Stable",
       "obtainable": true,
@@ -508,7 +509,7 @@
     },
     {
       "name": "Cid v1 (Spec Set)",
-      "crr": 604.0,
+      "crr": 604,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -516,7 +517,7 @@
     },
     {
       "name": "Hogyoku Fragment",
-      "crr": 570.0,
+      "crr": 570,
       "demand": "Moderate 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -524,7 +525,7 @@
     },
     {
       "name": "Esdeath (Spec Set)",
-      "crr": 568.0,
+      "crr": 568,
       "demand": "Medium 2",
       "stability": "Stable",
       "obtainable": true,
@@ -532,7 +533,7 @@
     },
     {
       "name": "Dark Ring",
-      "crr": 555.0,
+      "crr": 372,
       "demand": "Moderate 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -540,7 +541,7 @@
     },
     {
       "name": "Gojo v2 (Domain Shard)",
-      "crr": 551.0,
+      "crr": 551,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -548,7 +549,7 @@
     },
     {
       "name": "Aizen v2 (Mastery)",
-      "crr": 545.0,
+      "crr": 545,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -556,7 +557,7 @@
     },
     {
       "name": "Sukuna v2 (Domain)",
-      "crr": 542.0,
+      "crr": 542,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -564,7 +565,7 @@
     },
     {
       "name": "Reiatsu Core",
-      "crr": 516.0,
+      "crr": 545,
       "demand": "Moderate 6",
       "stability": "Unstable",
       "obtainable": true,
@@ -572,7 +573,7 @@
     },
     {
       "name": "Atomic Core",
-      "crr": 512.0,
+      "crr": 837,
       "demand": "Moderate 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -580,7 +581,7 @@
     },
     {
       "name": "Dismantle Fang",
-      "crr": 508.0,
+      "crr": 381,
       "demand": "Moderate 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -588,7 +589,7 @@
     },
     {
       "name": "Vampire Omen",
-      "crr": 500.0,
+      "crr": 500,
       "demand": "High 4",
       "stability": "Unstable",
       "obtainable": true,
@@ -596,7 +597,7 @@
     },
     {
       "name": "Spell Echo",
-      "crr": 500.0,
+      "crr": 500,
       "demand": "Moderate 4",
       "stability": "Stable",
       "obtainable": true,
@@ -604,7 +605,7 @@
     },
     {
       "name": "Aizen v2 (Spec Set)",
-      "crr": 496.0,
+      "crr": 496,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -612,7 +613,7 @@
     },
     {
       "name": "Kokushibo (Mastery)",
-      "crr": 495.0,
+      "crr": 495,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -620,7 +621,7 @@
     },
     {
       "name": "Blessed Maiden (Full)",
-      "crr": 480.0,
+      "crr": 480,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -628,7 +629,7 @@
     },
     {
       "name": "Cid v2 (Full Set)",
-      "crr": 415.0,
+      "crr": 415,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -636,7 +637,7 @@
     },
     {
       "name": "Aura Crate",
-      "crr": 425.0,
+      "crr": 400,
       "demand": "Moderate 1",
       "stability": "Stable",
       "obtainable": true,
@@ -644,7 +645,7 @@
     },
     {
       "name": "SJW v2 Set",
-      "crr": 400.0,
+      "crr": 400,
       "demand": "Moderate 6",
       "stability": "Stable",
       "obtainable": true,
@@ -652,7 +653,7 @@
     },
     {
       "name": "World Core",
-      "crr": 370.0,
+      "crr": 370,
       "demand": "High 5",
       "stability": "Unstable",
       "obtainable": true,
@@ -660,7 +661,7 @@
     },
     {
       "name": "Gojo v1 Set",
-      "crr": 365.0,
+      "crr": 365,
       "demand": "High 5",
       "stability": "Stable",
       "obtainable": true,
@@ -668,7 +669,7 @@
     },
     {
       "name": "Cid v2 (Spec Set)",
-      "crr": 355.0,
+      "crr": 355,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -676,7 +677,7 @@
     },
     {
       "name": "Gilgamesh (Spec Set)",
-      "crr": 339.0,
+      "crr": 339,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -684,7 +685,7 @@
     },
     {
       "name": "Saber v2 (Spec Set)",
-      "crr": 331.0,
+      "crr": 331,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -692,7 +693,7 @@
     },
     {
       "name": "Rimuru (Spec Set)",
-      "crr": 327.0,
+      "crr": 327,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -700,7 +701,7 @@
     },
     {
       "name": "Blessed Maiden (Mas.)",
-      "crr": 325.0,
+      "crr": 325,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -708,7 +709,7 @@
     },
     {
       "name": "Ascension 2",
-      "crr": 315.0,
+      "crr": 315,
       "demand": "Medium 5",
       "stability": "Stable",
       "obtainable": true,
@@ -716,7 +717,7 @@
     },
     {
       "name": "Gojo v2 (Spec Set)",
-      "crr": 312.0,
+      "crr": 312,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -724,7 +725,7 @@
     },
     {
       "name": "Sukuna v2 (Spec Set)",
-      "crr": 310.0,
+      "crr": 310,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -732,7 +733,7 @@
     },
     {
       "name": "Kokushibo (Spec Set)",
-      "crr": 309.0,
+      "crr": 309,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -740,7 +741,7 @@
     },
     {
       "name": "Evolution Fragment",
-      "crr": 300.0,
+      "crr": 300,
       "demand": "Moderate 6",
       "stability": "Unstable",
       "obtainable": true,
@@ -748,7 +749,7 @@
     },
     {
       "name": "Phantasm Core",
-      "crr": 300.0,
+      "crr": 500,
       "demand": "Moderate 6",
       "stability": "Unstable",
       "obtainable": true,
@@ -756,7 +757,7 @@
     },
     {
       "name": "Slime Core",
-      "crr": 300.0,
+      "crr": 760,
       "demand": "Moderate 6",
       "stability": "Unstable",
       "obtainable": true,
@@ -764,7 +765,7 @@
     },
     {
       "name": "Infinity Essence",
-      "crr": 270.0,
+      "crr": 833,
       "demand": "Moderate 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -772,7 +773,7 @@
     },
     {
       "name": "Cursed Flesh",
-      "crr": 270.0,
+      "crr": 833,
       "demand": "Moderate 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -780,7 +781,7 @@
     },
     {
       "name": "Corrupted Crown",
-      "crr": 200.0,
+      "crr": 200,
       "demand": "Moderate 6",
       "stability": "Unstable",
       "obtainable": true,
@@ -788,7 +789,7 @@
     },
     {
       "name": "Soul Flame",
-      "crr": 200.0,
+      "crr": 300,
       "demand": "Moderate 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -796,7 +797,7 @@
     },
     {
       "name": "Anos Set",
-      "crr": 164.0,
+      "crr": 164,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -804,7 +805,7 @@
     },
     {
       "name": "Time Remnant",
-      "crr": 150.0,
+      "crr": 150,
       "demand": "High 5",
       "stability": "Unstable",
       "obtainable": true,
@@ -812,7 +813,7 @@
     },
     {
       "name": "Cosmetic Crate",
-      "crr": 144.0,
+      "crr": 140,
       "demand": "Medium 4",
       "stability": "Stable",
       "obtainable": true,
@@ -820,7 +821,7 @@
     },
     {
       "name": "Blessed Maiden (Spec)",
-      "crr": 155.0,
+      "crr": 155,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -828,7 +829,7 @@
     },
     {
       "name": "Ice Core",
-      "crr": 105.0,
+      "crr": 0,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -836,7 +837,7 @@
     },
     {
       "name": "Transmutation Shard",
-      "crr": 100.0,
+      "crr": 100,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -844,7 +845,7 @@
     },
     {
       "name": "Sung Jinwoo v2",
-      "crr": 95.0,
+      "crr": 95,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -852,7 +853,7 @@
     },
     {
       "name": "Ichigo Set",
-      "crr": 90.0,
+      "crr": 90,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -860,7 +861,7 @@
     },
     {
       "name": "Atomic Omen",
-      "crr": 80.0,
+      "crr": 80,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -868,7 +869,7 @@
     },
     {
       "name": "Moon Crest",
-      "crr": 80.0,
+      "crr": 80,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -876,7 +877,7 @@
     },
     {
       "name": "Secret Chest",
-      "crr": 80.0,
+      "crr": 80,
       "demand": "High 3",
       "stability": "Stable",
       "obtainable": true,
@@ -884,7 +885,7 @@
     },
     {
       "name": "Frozen Brand",
-      "crr": 75.0,
+      "crr": 0,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -892,7 +893,7 @@
     },
     {
       "name": "Easter Key",
-      "crr": 70.0,
+      "crr": 23,
       "demand": "Medium 5",
       "stability": "Stable",
       "obtainable": true,
@@ -900,7 +901,7 @@
     },
     {
       "name": "Eternal Core",
-      "crr": 70.0,
+      "crr": 70,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -908,7 +909,7 @@
     },
     {
       "name": "Cid v2 (Mastery Set)",
-      "crr": 60.0,
+      "crr": 60,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -916,7 +917,7 @@
     },
     {
       "name": "Easter Egg",
-      "crr": 59.0,
+      "crr": 59,
       "demand": "High 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -924,7 +925,7 @@
     },
     {
       "name": "Qin Shi Set",
-      "crr": 50.0,
+      "crr": 50,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -932,7 +933,7 @@
     },
     {
       "name": "Bloodline Stone",
-      "crr": 40.0,
+      "crr": 12,
       "demand": "N/A",
       "stability": "N/A",
       "obtainable": true,
@@ -940,7 +941,7 @@
     },
     {
       "name": "Void Fragment",
-      "crr": 40.0,
+      "crr": 40,
       "demand": "Medium 5",
       "stability": "Stable",
       "obtainable": true,
@@ -948,7 +949,7 @@
     },
     {
       "name": "Limitless Ring",
-      "crr": 40.0,
+      "crr": 40,
       "demand": "Medium 5",
       "stability": "Stable",
       "obtainable": true,
@@ -956,7 +957,7 @@
     },
     {
       "name": "Power Fragment",
-      "crr": 30.0,
+      "crr": 30,
       "demand": "High 1",
       "stability": "Unstable",
       "obtainable": true,
@@ -964,7 +965,7 @@
     },
     {
       "name": "Dominion Brand",
-      "crr": 28.0,
+      "crr": 25,
       "demand": "High 7",
       "stability": "Unstable",
       "obtainable": true,
@@ -972,7 +973,7 @@
     },
     {
       "name": "Crescent Shard",
-      "crr": 25.0,
+      "crr": 25,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -980,7 +981,7 @@
     },
     {
       "name": "Corruption Core",
-      "crr": 25.0,
+      "crr": 25,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -988,7 +989,7 @@
     },
     {
       "name": "Celestial Mark",
-      "crr": 25.0,
+      "crr": 25,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -996,7 +997,7 @@
     },
     {
       "name": "Eminence Essence",
-      "crr": 25.0,
+      "crr": 25,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -1004,7 +1005,7 @@
     },
     {
       "name": "Transcendent Core",
-      "crr": 25.0,
+      "crr": 25,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -1012,7 +1013,7 @@
     },
     {
       "name": "Aero Core",
-      "crr": 25.0,
+      "crr": 25,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1020,7 +1021,7 @@
     },
     {
       "name": "Destruction Eye",
-      "crr": 25.0,
+      "crr": 25,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1028,7 +1029,7 @@
     },
     {
       "name": "Kamish Dagger",
-      "crr": 25.0,
+      "crr": 25,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1036,7 +1037,7 @@
     },
     {
       "name": "Imperial Mark",
-      "crr": 25.0,
+      "crr": 25,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1044,7 +1045,7 @@
     },
     {
       "name": "Shadow Crystal",
-      "crr": 25.0,
+      "crr": 25,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1052,7 +1053,7 @@
     },
     {
       "name": "Crystal Key",
-      "crr": 20.0,
+      "crr": 25,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -1060,7 +1061,7 @@
     },
     {
       "name": "Cassul",
-      "crr": 20.0,
+      "crr": 20,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1068,7 +1069,7 @@
     },
     {
       "name": "Saber v1 Set",
-      "crr": 20.0,
+      "crr": 20,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1076,7 +1077,7 @@
     },
     {
       "name": "Shadow Heart",
-      "crr": 20.0,
+      "crr": 20,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1084,7 +1085,7 @@
     },
     {
       "name": "Battle Sigil",
-      "crr": 16.0,
+      "crr": 16,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -1092,7 +1093,7 @@
     },
     {
       "name": "Crimson Heart",
-      "crr": 15.0,
+      "crr": 15,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1100,7 +1101,7 @@
     },
     {
       "name": "Glacier Remnant",
-      "crr": 12.0,
+      "crr": 12,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -1116,7 +1117,7 @@
     },
     {
       "name": "Shadow Remnant",
-      "crr": 8.0,
+      "crr": 8,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -1124,7 +1125,7 @@
     },
     {
       "name": "Lunar Essence",
-      "crr": 8.0,
+      "crr": 8,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -1132,7 +1133,7 @@
     },
     {
       "name": "Yamato Essence",
-      "crr": 6.0,
+      "crr": 6,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1140,7 +1141,7 @@
     },
     {
       "name": "Void Seed",
-      "crr": 6.0,
+      "crr": 6,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1148,7 +1149,7 @@
     },
     {
       "name": "Shadow Essence",
-      "crr": 6.0,
+      "crr": 6,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1156,7 +1157,7 @@
     },
     {
       "name": "Silent Storm",
-      "crr": 6.0,
+      "crr": 6,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1172,7 +1173,7 @@
     },
     {
       "name": "Divergent Pulse",
-      "crr": 5.0,
+      "crr": 5,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1180,7 +1181,7 @@
     },
     {
       "name": "Infinity Core",
-      "crr": 5.0,
+      "crr": 5,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1188,7 +1189,7 @@
     },
     {
       "name": "Soul Amulet",
-      "crr": 5.0,
+      "crr": 5,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1196,7 +1197,7 @@
     },
     {
       "name": "Six Eyes",
-      "crr": 4.0,
+      "crr": 4,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1204,7 +1205,7 @@
     },
     {
       "name": "Ancient Shard",
-      "crr": 3.0,
+      "crr": 3,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -1212,7 +1213,7 @@
     },
     {
       "name": "Blue Singularity",
-      "crr": 3.0,
+      "crr": 3,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1220,7 +1221,7 @@
     },
     {
       "name": "Magic Shard",
-      "crr": 3.0,
+      "crr": 3,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1228,7 +1229,7 @@
     },
     {
       "name": "Malevolent Soul",
-      "crr": 3.0,
+      "crr": 3,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1236,7 +1237,7 @@
     },
     {
       "name": "Mythical Chest",
-      "crr": 3.0,
+      "crr": 3,
       "demand": "Moderate 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1244,7 +1245,7 @@
     },
     {
       "name": "Broken Sword",
-      "crr": 3.0,
+      "crr": 3,
       "demand": "Medium 2",
       "stability": "Stable",
       "obtainable": true,
@@ -1252,7 +1253,7 @@
     },
     {
       "name": "Golden Essence",
-      "crr": 3.0,
+      "crr": 3,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -1260,7 +1261,7 @@
     },
     {
       "name": "Power Remnant",
-      "crr": 3.0,
+      "crr": 3,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1268,7 +1269,7 @@
     },
     {
       "name": "Gale Essence",
-      "crr": 2.0,
+      "crr": 2,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1276,7 +1277,7 @@
     },
     {
       "name": "Battle Shard",
-      "crr": 2.0,
+      "crr": 2,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1284,7 +1285,7 @@
     },
     {
       "name": "Alter Essence",
-      "crr": 2.0,
+      "crr": 2,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1292,7 +1293,7 @@
     },
     {
       "name": "Demon Remnant",
-      "crr": 2.0,
+      "crr": 2,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1300,7 +1301,7 @@
     },
     {
       "name": "Demonic Shard",
-      "crr": 2.0,
+      "crr": 2,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1308,7 +1309,7 @@
     },
     {
       "name": "Frozen Will",
-      "crr": 2.0,
+      "crr": 2,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1316,7 +1317,7 @@
     },
     {
       "name": "Fusion Ring",
-      "crr": 2.0,
+      "crr": 2,
       "demand": "Medium 3",
       "stability": "Stable",
       "obtainable": true,
@@ -1324,7 +1325,7 @@
     },
     {
       "name": "Slime Remnant",
-      "crr": 2.0,
+      "crr": 2,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1332,7 +1333,7 @@
     },
     {
       "name": "Tempest Seal",
-      "crr": 2.0,
+      "crr": 2,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1340,7 +1341,7 @@
     },
     {
       "name": "Monarch Essence",
-      "crr": 2.0,
+      "crr": 2,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1348,7 +1349,7 @@
     },
     {
       "name": "Divinity Essence",
-      "crr": 2.0,
+      "crr": 2,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1364,7 +1365,7 @@
     },
     {
       "name": "Clan Reroll",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "N/A",
       "stability": "N/A",
       "obtainable": true,
@@ -1372,7 +1373,7 @@
     },
     {
       "name": "Flash Impact",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1380,7 +1381,7 @@
     },
     {
       "name": "Frost Relic",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Medium 2",
       "stability": "Stable",
       "obtainable": true,
@@ -1388,7 +1389,7 @@
     },
     {
       "name": "Reversal Pulse",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1396,7 +1397,7 @@
     },
     {
       "name": "Mirage Pendant",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1404,7 +1405,7 @@
     },
     {
       "name": "Abyss Edge",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1412,7 +1413,7 @@
     },
     {
       "name": "Rush Key",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -1420,7 +1421,7 @@
     },
     {
       "name": "Calamity Seal",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1428,7 +1429,7 @@
     },
     {
       "name": "Cursed Finger",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1436,7 +1437,7 @@
     },
     {
       "name": "Dark Grail",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1444,7 +1445,7 @@
     },
     {
       "name": "Demonic Fragment",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1452,7 +1453,7 @@
     },
     {
       "name": "Dungeon Key",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -1460,7 +1461,7 @@
     },
     {
       "name": "Illusion Prism",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1468,7 +1469,7 @@
     },
     {
       "name": "Legendary Chest",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1476,7 +1477,7 @@
     },
     {
       "name": "Sage Pulse",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1484,7 +1485,7 @@
     },
     {
       "name": "Slime Key",
-      "crr": 1.0,
+      "crr": 1200,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1492,7 +1493,7 @@
     },
     {
       "name": "Tempest Relic",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1500,7 +1501,7 @@
     },
     {
       "name": "Throne Remnant",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1508,7 +1509,7 @@
     },
     {
       "name": "Tower Key",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -1516,7 +1517,7 @@
     },
     {
       "name": "Upper Seal",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Medium 2",
       "stability": "Stable",
       "obtainable": true,
@@ -1524,7 +1525,7 @@
     },
     {
       "name": "Tide Remnant",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1532,7 +1533,7 @@
     },
     {
       "name": "Abyss Sigil",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1540,7 +1541,7 @@
     },
     {
       "name": "Vessel Ring",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1548,7 +1549,7 @@
     },
     {
       "name": "Chrysalis Sigil",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Medium 2",
       "stability": "Stable",
       "obtainable": true,
@@ -1556,7 +1557,7 @@
     },
     {
       "name": "Monarch Core",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1564,7 +1565,7 @@
     },
     {
       "name": "Morgan Remnant",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Low",
       "stability": "Stable",
       "obtainable": true,
@@ -1572,7 +1573,7 @@
     },
     {
       "name": "Umbral Capsule",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Medium 1",
       "stability": "Stable",
       "obtainable": true,
@@ -1580,7 +1581,7 @@
     },
     {
       "name": "Adamantite",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "High 6",
       "stability": "Stable",
       "obtainable": true,
@@ -1588,7 +1589,7 @@
     },
     {
       "name": "Boss Keys",
-      "crr": 1.0,
+      "crr": 1,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -1604,7 +1605,7 @@
     },
     {
       "name": "Limitless Key",
-      "crr": 0.5,
+      "crr": 1000,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -1612,7 +1613,7 @@
     },
     {
       "name": "Malevolent Key",
-      "crr": 0.5,
+      "crr": 1000,
       "demand": "Dead",
       "stability": "Stable",
       "obtainable": true,
@@ -1724,7 +1725,7 @@
     },
     {
       "name": "Obsidian",
-      "crr": 0.008,
+      "crr": 0,
       "demand": "Dead 2",
       "stability": "Stable",
       "obtainable": true,
