@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "updated": "2026-05-07",
   "items": [
     {
@@ -300,7 +300,7 @@
     },
     {
       "name": "Relic Part #3",
-      "crr": 1300,
+      "crr": 2500,
       "demand": "Medium 6",
       "stability": "Stable",
       "obtainable": true,
@@ -308,7 +308,7 @@
     },
     {
       "name": "Relic Part #1",
-      "crr": 1300,
+      "crr": 2000,
       "demand": "Medium 6",
       "stability": "Stable",
       "obtainable": true,
@@ -316,7 +316,7 @@
     },
     {
       "name": "Relic Part #7",
-      "crr": 1200,
+      "crr": 2500,
       "demand": "Medium 5",
       "stability": "Stable",
       "obtainable": true,
@@ -324,7 +324,7 @@
     },
     {
       "name": "Relic Part #8",
-      "crr": 1200,
+      "crr": 2500,
       "demand": "Medium 5",
       "stability": "Stable",
       "obtainable": true,
@@ -412,7 +412,7 @@
     },
     {
       "name": "Relic Part #2",
-      "crr": 900,
+      "crr": 1500,
       "demand": "Medium 2",
       "stability": "Stable",
       "obtainable": true,
@@ -420,7 +420,7 @@
     },
     {
       "name": "Relic Part #4",
-      "crr": 900,
+      "crr": 1500,
       "demand": "Medium 2",
       "stability": "Stable",
       "obtainable": true,
