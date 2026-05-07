@@ -71,6 +71,7 @@ export default async function handler(req, res) {
     if (action === 'collect') return await handleCollect(req, res, id);
     if (action === 'push')    return await handlePush(req, res, id);
     if (action === 'stats')   return await handleStats(req, res, id);
+    if (action === 'analyze') return await handleAnalyze(req, res, id);
     return res.status(400).json({ error: `Unknown action: ${action}` });
   } catch (err) {
     log(id, `CRASH: ${err.message}`, 'error');
@@ -464,6 +465,90 @@ async function handleStats(req, res, id) {
   if (!db) return res.status(500).json({ error: 'Could not fetch db.json' });
   const analytics = computeAnalytics(db.items);
   return res.status(200).json({ ...analytics, lastUpdated: db.updated, version: db.version });
+}
+
+// ══════════════════════════════════════════════════════════════
+// ACTION 5 — AI ANALYZE PROXY
+// Receives trade text from Trade Intelligence browser tool,
+// calls Anthropic server-side (bypasses CORS), returns suggestions.
+// ══════════════════════════════════════════════════════════════
+async function handleAnalyze(req, res, id) {
+  // CORS headers — allow the browser tool to call this endpoint
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).end();
+
+  if (!ANTHROPIC_KEY) {
+    return res.status(400).json({ error: 'ANTHROPIC_API_KEY not set in Vercel env vars. Add it in Vercel → Settings → Environment Variables.' });
+  }
+
+  let body;
+  try {
+    const raw = await readBody(req);
+    body = JSON.parse(raw.toString());
+  } catch { return res.status(400).json({ error: 'Invalid JSON body' }); }
+
+  const tradeText = (body.trades || '').trim();
+  const itemNames = body.itemNames || '';
+  const pushAfter = body.push === true;
+
+  if (!tradeText) return res.status(400).json({ error: 'No trade text provided' });
+
+  log(id, `Analyze: ${tradeText.split('\n').length} lines, push=${pushAfter}`);
+
+  const prompt = `You are a Sailor Piece (Roblox) trading market analyst.
+Extract REAL CRR prices from these Discord trade messages.
+Known items: ${itemNames}
+Rules:
+- Skip placeholder prices: "1 CRR", "make offer", MAO, OBO, free, giveaway
+- Only include prices you are confident about (confidence >= 0.6)
+- Match item names to the known items list (fuzzy match OK)
+Return ONLY valid JSON, no explanation:
+{"updates":[{"name":"Item Name","crr":12345,"confidence":0.85}]}
+
+Trade messages:
+${tradeText}`;
+
+  try {
+    const aiRes = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, messages: [{ role: 'user', content: prompt }] })
+    });
+
+    const aiData = await aiRes.json();
+    if (aiData.error) return res.status(500).json({ error: `AI error: ${aiData.error.message}` });
+
+    const text    = aiData.content?.[0]?.text || '{}';
+    const updates = JSON.parse(text.replace(/```json|```/g,'').trim()).updates || [];
+    log(id, `AI returned ${updates.length} updates`);
+
+    // Optional: push to GitHub immediately
+    if (pushAfter && updates.length > 0 && GH_TOKEN) {
+      const { data: db, sha } = await ghGet('db.json');
+      if (db) {
+        let count = 0;
+        for (const u of updates) {
+          const item = db.items.find(i => i.name.toLowerCase() === u.name.toLowerCase() || i.name.toLowerCase().includes(u.name.toLowerCase()));
+          if (item && u.crr > 0) { item.crr = Math.round(u.crr); count++; }
+        }
+        if (count > 0) {
+          db.updated = new Date().toISOString().split('T')[0];
+          db.version = Math.round(((parseFloat(db.version)||1)+0.001)*1000)/1000;
+          await ghPut('db.json', db, sha, `[BVH] Trade update ${db.updated}`);
+          log(id, `Pushed ${count} items to GitHub`);
+        }
+      }
+    }
+
+    return res.status(200).json({ success: true, updates, count: updates.length });
+
+  } catch (err) {
+    log(id, `Analyze error: ${err.message}`, 'error');
+    return res.status(500).json({ error: err.message });
+  }
 }
 
 // ══════════════════════════════════════════════════════════════
