@@ -26,29 +26,32 @@ export default async function handler(req, res) {
     }
 
     const event = JSON.parse(rawBody.toString());
-    console.log('Stripe event:', event.type);
+    console.log('Stripe event received:', event.type);
+    console.log('Webhook URL:', WH_SUBLOG.slice(0, 50) + '...');
 
     // Handle successful payment events
     if (event.type === 'checkout.session.completed' || 
         event.type === 'payment_intent.succeeded' ||
         event.type === 'invoice.payment_succeeded') {
 
+      console.log('Processing payment event...');
       const session = event.data.object;
       const amount  = (session.amount_total || session.amount || 500) / 100;
       const email   = session.customer_details?.email || session.receipt_email || session.customer_email || 'Unknown';
       const name    = session.customer_details?.name || 'New Subscriber';
       const date    = new Date().toLocaleDateString('en-CA');
 
-      // Post to Discord subscriber log
+      console.log('Sending Discord notification for:', name, email, amount);
+
       const discordPayload = {
         embeds: [{
           title: '💰 New BVH Subscription Payment',
-          description: `A new subscription payment has been received.`,
+          description: 'A new subscription payment has been received.',
           color: 0x00FF9D,
           fields: [
             { name: 'Customer',    value: name,                        inline: true },
             { name: 'Email',       value: email,                       inline: true },
-            { name: 'Amount',      value: `$${amount.toFixed(2)} CAD`, inline: true },
+            { name: 'Amount',      value: '$' + amount.toFixed(2) + ' CAD', inline: true },
             { name: 'Event Type',  value: event.type,                  inline: true },
             { name: 'Date',        value: date,                        inline: true },
             { name: 'Action Required', value: '⚠️ Add subscriber to spreadsheet and send Pro password via Discord ticket', inline: false },
@@ -58,18 +61,23 @@ export default async function handler(req, res) {
         }]
       };
 
-      const discordRes = await fetch(WH_SUBLOG, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(discordPayload)
-      });
-
-      if (discordRes.ok || discordRes.status === 204) {
-        console.log('Discord notification sent successfully');
-      } else {
-        console.error('Discord notification failed:', discordRes.status);
+      try {
+        const discordRes = await fetch(WH_SUBLOG, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(discordPayload)
+        });
+        console.log('Discord response status:', discordRes.status);
+        const discordBody = await discordRes.text();
+        console.log('Discord response body:', discordBody.slice(0, 200));
+        if (discordRes.ok || discordRes.status === 204) {
+          console.log('Discord notification sent successfully');
+        } else {
+          console.error('Discord notification failed:', discordRes.status, discordBody);
+        }
+      } catch (discordErr) {
+        console.error('Discord fetch error:', discordErr.message);
       }
-    }
 
     // Handle subscription cancellations
     if (event.type === 'customer.subscription.deleted') {
